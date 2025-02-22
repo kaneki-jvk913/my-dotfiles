@@ -3,9 +3,9 @@
 # terminal emulator kitty
 super + Return
 	kitty
-# app luancher rofi
+# app luancher dmenu
 super + r
-        rofi -show drun
+        dmenu_run
 
 # close and kill
 super + c

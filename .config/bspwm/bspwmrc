@@ -13,7 +13,7 @@ COLORSCHEME="DoomOne"
 #### AUTOSTART ####
 /usr/lib/polkit-kde-authentication-agent-1 &
 sxhkd &
-picom &
+#picom &
 polybar &
 nitrogen --restore &
 killall nm-applet && nm-applet &

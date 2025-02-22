@@ -94,6 +94,10 @@
                 {
                      "label": "" ,
                     "command": "hyprsunset -t 3000"
+                }, 
+                {
+                     "label": " " ,
+                    "command": "nm-applet &"
                 }
             ]
         }
