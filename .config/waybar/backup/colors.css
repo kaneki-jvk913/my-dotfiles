@@ -1,0 +1,35 @@
+
+@define-color foreground #d4be98;
+@define-color background #1d2021;
+
+/* catpucin mocha */
+ @define-color color0 #2A3036;      /*  #1e2030; */
+
+/* fvourite colors for waybar
+
+#2A3036; grey
+#1e2030; mocha
+
+*/
+
+/* blue */
+@define-color color1 #499dd7;
+
+/* mauve */
+@define-color color2 #9891ca;
+
+/* red */
+@define-color color3 #e56160;
+
+
+/* yelew */
+
+@define-color color4 #ecbe7b;
+
+
+/* green */
+@define-color color5 #89AB5B;
+
+
+/* blue ciel */
+@define-color color6 #46d9ff;
