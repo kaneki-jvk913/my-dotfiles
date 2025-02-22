@@ -1,0 +1,310 @@
+         //------------------------------------------------------//         
+        //                                                      //
+       //    █████╗ ██╗   ██╗ ██████╗ ██╗   ██╗██████╗         //
+      //    ██╔══██╗╚██╗ ██╔╝██╔═══██╗██║   ██║██╔══██╗       //
+     //     ███████║ ╚████╔╝ ██║   ██║██║   ██║██████╔╝      //
+    //      ██╔══██║  ╚██╔╝  ██║   ██║██║   ██║██╔══██╗     //
+   //       ██║  ██║   ██║   ╚██████╔╝╚██████╔╝██████╔╝    //
+  //        ╚═╝  ╚═╝   ╚═╝    ╚═════╝  ╚═════╝ ╚═════╝    //
+ //                                                      //
+//------------------------------------------------------//  
+
+
+
+{
+  // Set the bar to always be on top and at the top of the screen.
+  "layer": "bottom",
+  "position": "top",
+  "height": 0,
+  "reload_style_on_change": true,
+    
+
+      "modules-left": [
+    "custom/menu",
+    "hyprland/workspaces",
+//  "hyprland/window"
+//  "custom/hyprsunset",  
+//  "bluetooth",
+    "custom/cava_mviz"
+],
+  
+     "modules-center": [
+
+   ],
+
+   "modules-right": [ 
+
+
+
+// "pulseaudio#microphone"
+  
+  "network",
+   "cpu",
+   "memory",
+   "battery",
+ 
+   "pulseaudio",
+   "custom/powernc",
+   "clock",
+   "tray"
+
+
+  ],
+
+
+
+"tray": {
+    "icon-size": 15,
+    "spacing": 8,
+},
+
+  "custom/hyprsunset": {
+        "exec": "echo 'HyprSunset Module Loaded'",
+          "format": "󰔎",    
+   //     "format": ""
+        "tooltip": "Enable/Disable HyprSunset",
+        "interval": 0,
+        "on-click": "~/.config/hypr/scripts/toggle_hyprsunset.sh"
+    },
+
+"custom/powernc": {
+     "tooltip":true,
+     "format": "    power menu  ",
+     "return-type": "json",
+     "exec-if": "which swaync-client",
+     "exec": "swaync-client -swb",
+     "on-click": "sleep 0.1 && swaync-client -t -sw",
+     "on-click-right": "swaync-client -d -sw",
+     "escape": true,
+ },
+
+
+
+"clock": {
+  
+"format": "     <span ><span color=\"#ea6962\"></span>{:%a %d %b, %Y  %I:%M %p}</span>  ",
+  
+// "format": "<span ><span color=\"#ea6962\"></span>{:%a %b %d %I:%M %p}</span>"
+  
+  "timezones": [
+        "Africa/Casablanca",
+      ],
+      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+      "calendar": {
+        "mode": "month",
+        "mode-mon-col": 3,
+        "on-scroll": 1,
+    //    "format": {
+   //       "months": "<span color='#a6e3a1'><b>{}</b></span>",
+    //      "days": "<span color='#cdd6f4'>{}</span>",
+    //      "weeks": "<span color='#74c7ec'><b>W{}</b></span>",
+   //       "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+  //        "today": "<span background='#f38ba8' color='#1e1e2e'><b>{}</b></span>"
+      //  }
+      },
+  
+    },    
+ 
+"memory": {
+     "interval": 10,
+     "format": " 💾 Mem  {used:0.1f} GB ",
+     "format-alt": " 💾 Mem  {percentage}%  ",
+     "format-alt-click": "click",
+     "tooltip": true,
+     "tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
+     "on-click-right": "kitty --title btop sh -c 'btop'",
+ },  
+
+
+  "cpu": {
+    "interval": 2,
+    "format": " 💻  Cpu   {usage}% ",  
+  },
+  
+
+
+
+
+
+
+"+++network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "   {essid} ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "    {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "format-linked":"    {bandwidthUpBytes}  {bandwidthDownBytes}",       
+//       "format-linked": "{ifname} (No IP) "
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "     {bandwidthUpBytes}    {bandwidthDownBytes}"
+    },
+
+
+
+
+  "network": {
+    "interval": 1,
+    "format": "{ifname}",
+    "format-wifi": "     {bandwidthUpBytes}    {bandwidthDownBytes} ",
+    "format-ethernet": "     {bandwidthUpBytes}    {bandwidthDownBytes} ",
+    "format-disconnected": "󰌙", 
+ //   "tooltip-format": "{ipaddr}",
+ //   "format-linked": "󰈁 {ifname} (No IP)",
+    "tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
+    "tooltip-format-ethernet": "{ifname} 󰌘",
+    "tooltip-format-disconnected": "󰌙 Disconnected",
+    "max-length": 50,
+    "format-alt": "    {signalStrength}%  {essid}  "
+
+},
+  
+  
+  
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "on-click": "~/.config/hypr/scripts/Volume.sh --toggle-mic",
+    "on-click-right": "pavucontrol -t 4",
+    "on-scroll-up": "~/.config/hypr/scripts/Volume.sh --mic-inc",
+    "on-scroll-down": "~/.config/hypr/scripts/Volume.sh --mic-dec",
+	"tooltip-format": "{source_desc} | {source_volume}%",
+    "scroll-step": 5,
+},
+
+
+"pulseaudio": {
+    "format": " volume   {icon}   {volume}% ",
+    "format-bluetooth": "{icon} 󰂰 {volume}%",
+    "format-muted": "muted 󰖁",
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+    "default": ["", "", "󰕾", ""], 
+    "ignored-sinks": ["Easy Effects Sink"],
+    },
+    "scroll-step": 5.0,
+    "on-click": "~/.config/hypr/scripts/Volume.sh --toggle",
+    "on-click-right": "pavucontrol -t 3",
+    "on-scroll-up": "~/.config/hypr/scripts/Volume.sh --inc",
+    "on-scroll-down": "~/.config/hypr/scripts/Volume.sh --dec",
+	"tooltip-format": "{icon} {desc} | {volume}%",
+    "smooth-scrolling-threshold": 1,
+},
+  
+  "backlight": {
+"exec": "~/.config/hypr/scripts/Brightness.sh --get",
+    "interval": 10,
+    "align": 0,
+    "rotate": 0,
+    "format": "󰃠 ",
+    "tooltip-format": "backlight {percent}%",
+    "icon-size": 10,
+    "on-click": "sh ~/.config/hypr/scripts/Brightness.sh --inc",
+    "on-click-middle": "",
+    "on-click-right": "sh ~/.config/hypr/scripts/Brightness.sh --dec",
+    "on-update": "",
+    "on-scroll-up": "~/.config/hypr/scripts/Brightness.sh --inc",
+    "on-scroll-down": "~/.config/hypr/scripts/Brightness.sh --dec",
+    "smooth-scrolling-threshold": 1,
+},
+
+
+"battery": {
+    //"interval": 5,
+    "align": 0,
+    "rotate": 0,
+    //"bat": "BAT1",
+   // "adapter": "ACAD",
+    "full-at": 100,
+    "design-capacity": false,
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+             },
+    "format": " {icon}     {capacity}% ",
+    "format-charging": " battery   {capacity}% ",
+    "format-plugged": " 󱘖 {capacity}% ",
+	" format-alt-click": "click ",
+    "format-full": " {icon}     Full ",
+    "format-alt": " {icon}     {time} ",
+    "format-icons": ["", "", "", "", ""],
+    "format-time": "{H}h {M}min",
+    "tooltip": true,
+    "tooltip-format": " {timeTo} {power}w ",
+    "on-click-middle": "~/.config/hypr/scripts/ChangeBlur.sh",
+    "on-click-right": "~/.config/hypr/scripts/Wlogout.sh",
+},
+
+"bluetooth": {
+    "format": "",
+    "format-disabled": "󰂳",
+    "format-connected": "󰂱 {num_connections}",
+    "tooltip-format": " {device_alias}",
+    "tooltip-format-connected": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": " {device_alias} 󰂄{device_battery_percentage}%",
+    "tooltip": true,
+    "on-click": "blueman-manager",
+},
+
+  "hyprland/workspaces": {
+   "active-only":false,
+    "all-outputs": true,
+    "format": "{icon}",
+    "show-special": false,
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "persistent-workspaces":{
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+ },
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+       
+      
+    },
+},
+
+
+"custom/cava_mviz": {
+    "exec": "~/.config/hypr/scripts/WaybarCava.sh",
+    "format": "{}"
+},
+
+
+"custom/menu": {
+    "format": " {}",
+    "exec": "echo ; echo 󱓟 app launcher",
+    "interval" : 86400, // once every day
+    "tooltip": true,
+    "on-click": "exec wofi",
+},
+
+
+ 
+    "custom/nowplaying": {
+    "format": " {}",
+    "interval": 1,
+    "escape": true,
+    "exec": "~/.config/waybar/scripts/nowPlaying.sh",
+  },
+
+ 
+  
+}
