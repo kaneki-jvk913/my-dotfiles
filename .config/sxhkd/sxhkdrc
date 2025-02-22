@@ -28,22 +28,6 @@ super + shift + r
 
 
 
-
-
-
-
-
-#!/usr/bin/env bash
-#  ____ _____
-# |  _ \_   _|  Derek Taylor (DistroTube)
-# | | | || |  	http://www.youtube.com/c/DistroTube
-# | |_| || |  	http://www.gitlab.com/dwt1/ 
-# |____/ |_|  	
-#        
-# A customized sxhkdrc for the bspwm window manager.
-# https://github.com/baskerville/sxhkd
-# https://github.com/baskerville/bspwm
-
 ### WM INDEPENDENT KEYBINDINGS ###
 
 # make sxhkd reload its configuration files:
