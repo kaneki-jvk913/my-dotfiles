@@ -21,7 +21,6 @@ SRC_DIRS=(
 "/home/ayoub/.config/swaync"
 "/home/ayoub/.config/sxhkd"
 "/home/ayoub/.config/waybar"
-"/home/ayoub/.config/waybar-normal"
 "/home/ayoub/.config/wireplumber"
 "/home/ayoub/.config/wofi"
 "/home/ayoub/.config/chrome-flags.conf"

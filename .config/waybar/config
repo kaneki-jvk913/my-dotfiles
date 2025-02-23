@@ -118,8 +118,8 @@
 
   "cpu": {
     "interval": 2,
-    "format": " 💻  Cpu   {usage}% ",  
-  },
+   "format": " 💻  Cpu   {usage}% ",  
+ },
   
 
 

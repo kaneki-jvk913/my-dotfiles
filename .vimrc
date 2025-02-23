@@ -23,14 +23,14 @@ let g:airline_theme = 'dracula'  " Change 'molokai' to your preferred theme
 "molokai   dracula jellybeans
 
 
-" Enable vim-airline
+"  Enable vim-airline
 let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1
 
-"disable garbage in right of bar
+"   disable garbage in right of bar
 let g:airline#extensions#whitespace#enabled = 0   
 
-" Customize vim-airline sections 
+"    Customize vim-airline sections 
 let g:airline_section_a = airline#section#create(['mode'])
 let g:airline_section_b = airline#section#create([])
 let g:airline_section_c = airline#section#create(['%{expand("%:~:.")}'])
@@ -126,12 +126,6 @@ nnoremap v p
 "For Visual Mode copy and past
 vnoremap c y
 vnoremap v p
-
-
-"################ usefule comand to use after eschap################
-
-" for search enter comand mode with esc then  /example  use n for next and N for backone
-
 
 
 
