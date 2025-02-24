@@ -118,8 +118,8 @@
 
   "cpu": {
     "interval": 2,
-    "format": " 💻  Cpu   {usage}% ",  
-  },
+   "format": " 💻  Cpu   {usage}% ",  
+ },
   
 
 
@@ -294,6 +294,7 @@
     "interval" : 86400, // once every day
     "tooltip": true,
     "on-click": "exec wofi",
+    "on-click-right": "/home/ayoub/.config/hypr/scripts/wofi-wallpaper-selector.sh",
 },
 
 
