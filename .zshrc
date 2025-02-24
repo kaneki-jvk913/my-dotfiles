@@ -24,6 +24,10 @@ cd() {
 
 alias rm='trash'
 
+
+alias dotfiles='/home/ayoub/.config/github-scripts/refresh-local-repo.sh'
+
+
 #-------------------------- theme ------------------------------#
 
 ZSH_THEME="robbyrussell"

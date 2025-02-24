@@ -7,7 +7,7 @@ SRC_DIRS=(
 "/home/ayoub/.config/btop"
 "/home/ayoub/.config/cava"
 "/home/ayoub/.config/fastfetch"
-"/home/ayoub/.config/goa-1.0"
+"/home/ayoub/.config/github-scripts"
 "/home/ayoub/.config/gtk-2.0"
 "/home/ayoub/.config/gtk-3.0"
 "/home/ayoub/.config/gtk-4.0"
@@ -25,10 +25,10 @@ SRC_DIRS=(
 "/home/ayoub/.config/wofi"
 "/home/ayoub/.config/chrome-flags.conf"
 "/home/ayoub/.config/chromium-flags.conf"
-"/home/ayoub/.config/copy-script-config.sh"
-"/home/ayoub/.config/copy-script-home-dots.sh"
+
+
 )
-DEST_DIR="/home/ayoub/backup-dotfiles/001-the-scripted-copy/.config"
+DEST_DIR="/home/ayoub/my-dotfiles/.config"
 
 # Create the destination directory if it doesn't exist
 mkdir -p "$DEST_DIR"

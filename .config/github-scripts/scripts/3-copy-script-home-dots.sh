@@ -7,7 +7,7 @@ SRC_DIRS=(
 "/home/ayoub/.vimrc"
 "/home/ayoub/.zshrc"
 )
-DEST_DIR="/home/ayoub/backup-dotfiles/001-the-scripted-copy"
+DEST_DIR="/home/ayoub/my-dotfiles"
 
 # Create the destination directory if it doesn't exist
 mkdir -p "$DEST_DIR"
