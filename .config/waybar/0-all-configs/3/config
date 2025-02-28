@@ -134,7 +134,7 @@
   "network": {
     "interval": 1,
     "format": "{ifname}",
-    "format-wifi": "[  {bandwidthUpBytes}  {bandwidthDownBytes}  ]",
+    "format-wifi": "[     {bandwidthUpBytes}    {bandwidthDownBytes}  ]",
     "format-ethernet": "    {bandwidthUpBytes}    {bandwidthDownBytes} ",
     "format-disconnected": "󰌙", 
  //   "tooltip-format": "{ipaddr}",
@@ -143,7 +143,7 @@
     "tooltip-format-ethernet": "{ifname} 󰌘",
     "tooltip-format-disconnected": "󰌙 Disconnected",
     "max-length": 50,
-    "format-alt": "    {signalStrength}%  {essid}  "
+    "format-alt": "[      {signalStrength}%  {essid}  ]"
 
 },
   
@@ -218,9 +218,9 @@
              },
     "format": "[  {icon}     {capacity}%  ]",
     "format-charging": "[  battery   {capacity}%  ]",
-    "format-plugged": "  {capacity}% ",
+    "format-plugged": "[  {capacity}%  ]",
 	" format-alt-click": "click ",
-    "format-full": " {icon}     Full ",
+    "format-full": "[  {icon}   Full  ]",
     "format-alt": " {icon}     {time} ",
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "format-time": "{H}h {M}min",

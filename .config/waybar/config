@@ -22,14 +22,13 @@
       "modules-left": [
     "custom/menu",
     "hyprland/workspaces",
-    "hyprland/window"
+//  "hyprland/window"
 //  "custom/hyprsunset",  
 //  "bluetooth",
-//    "custom/cava_mviz"
+    "custom/cava_mviz"
 ],
   
      "modules-center": [
-
 
    ],
 
@@ -45,18 +44,13 @@
    "battery",
  
    "pulseaudio",
- //  "custom/powernc",
-   "clock"
- //  "tray"
+   "custom/powernc",
+   "clock",
+   "tray"
 
 
   ],
 
-
-"hyprland/window": {
-    "format": " {title}",
-    "max-length": 100
-    },
 
 
 "tray": {
@@ -88,7 +82,7 @@
 
 "clock": {
   
-"format": "[  <span ><span color=\"#ea6962\"></span>{:%a %d %b, %I:%M %p}</span>  ]",
+"format": "     <span ><span color=\"#ea6962\"></span>{:%a %d %b, %Y  %I:%M %p}</span>  ",
   
 // "format": "<span ><span color=\"#ea6962\"></span>{:%a %b %d %I:%M %p}</span>"
   
@@ -113,8 +107,8 @@
  
 "memory": {
      "interval": 10,
-     "format": "[  Mem  {used:0.1f} GB  ]",
-     "format-alt": "[  Mem  {percentage}%  ]",
+     "format": " 💾 Mem  {used:0.1f} GB ",
+     "format-alt": " 💾 Mem  {percentage}%  ",
      "format-alt-click": "click",
      "tooltip": true,
      "tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
@@ -124,9 +118,25 @@
 
   "cpu": {
     "interval": 2,
-   "format": "[  Cpu   {usage}% ]",  
+   "format": " 💻  Cpu   {usage}% ",  
  },
   
+
+
+
+
+
+
+"+++network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "   {essid} ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "    {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "format-linked":"    {bandwidthUpBytes}  {bandwidthDownBytes}",       
+//       "format-linked": "{ifname} (No IP) "
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "     {bandwidthUpBytes}    {bandwidthDownBytes}"
+    },
 
 
 
@@ -134,8 +144,8 @@
   "network": {
     "interval": 1,
     "format": "{ifname}",
-    "format-wifi": "[     {bandwidthUpBytes}    {bandwidthDownBytes}  ]",
-    "format-ethernet": "    {bandwidthUpBytes}    {bandwidthDownBytes} ",
+    "format-wifi": "     {bandwidthUpBytes}    {bandwidthDownBytes} ",
+    "format-ethernet": "     {bandwidthUpBytes}    {bandwidthDownBytes} ",
     "format-disconnected": "󰌙", 
  //   "tooltip-format": "{ipaddr}",
  //   "format-linked": "󰈁 {ifname} (No IP)",
@@ -143,15 +153,15 @@
     "tooltip-format-ethernet": "{ifname} 󰌘",
     "tooltip-format-disconnected": "󰌙 Disconnected",
     "max-length": 50,
-    "format-alt": "[      {signalStrength}%  {essid}  ]"
+    "format-alt": "    {signalStrength}%  {essid}  "
 
 },
   
   
   
   "pulseaudio#microphone": {
-    "format": " {format_source} ",
-    "format-source": "  {volume}% ",
+    "format": "{format_source}",
+    "format-source": " {volume}%",
     "format-source-muted": "",
     "on-click": "~/.config/hypr/scripts/Volume.sh --toggle-mic",
     "on-click-right": "pavucontrol -t 4",
@@ -163,9 +173,9 @@
 
 
 "pulseaudio": {
-    "format": "[  volume  {volume}%  ]",
-    "format-bluetooth": "[  volume  {volume}%  ]",
-    "format-muted": "[  muted 󰖁  ]",
+    "format": " volume   {icon}   {volume}% ",
+    "format-bluetooth": "{icon} 󰂰 {volume}%",
+    "format-muted": "muted 󰖁",
     "format-icons": {
         "headphone": "",
         "hands-free": "",
@@ -216,13 +226,13 @@
       "warning": 30,
       "critical": 15
              },
-    "format": "[  {icon}     {capacity}%  ]",
-    "format-charging": "[  battery   {capacity}%  ]",
-    "format-plugged": "[  {capacity}%  ]",
+    "format": " {icon}     {capacity}% ",
+    "format-charging": " battery   {capacity}% ",
+    "format-plugged": " 󱘖 {capacity}% ",
 	" format-alt-click": "click ",
-    "format-full": "[  {icon}   Full  ]",
+    "format-full": " {icon}     Full ",
     "format-alt": " {icon}     {time} ",
-    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-icons": ["", "", "", "", ""],
     "format-time": "{H}h {M}min",
     "tooltip": true,
     "tooltip-format": " {timeTo} {power}w ",
@@ -279,7 +289,7 @@
 
 
 "custom/menu": {
-    "format": "  {}",
+    "format": " {}",
     "exec": "echo ; echo 󱓟 app launcher",
     "interval" : 86400, // once every day
     "tooltip": true,

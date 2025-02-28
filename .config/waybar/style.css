@@ -2,18 +2,18 @@
 /*@import "mode.css";*/
 #custom-menu, #custom-cava_mviz ,#backlight, #battery, #cpu, #disk, #idle_inhibitor, #keyboard-state, #powernc, #custom-powernc,
 #pulseaudio, #clock, #tags, #language, #memory, #network, #sndio,
-#hyprland-window, #mode, #window, #workspaces, #temperature, #taskbar, #workspaces,
+#mode, #window, #workspaces, #temperature, #taskbar, #workspaces,
 #custom-treefetch-downloads, #custom-update-count, #custom-axyl-downloads,
 #custom-gpu-temp, #custom-artix, #custom-cpubars, #custom-nettrf, #custom-showmode,#custom-nowplaying{
-  background-color: #E2E3E3;
+  background-color: transparent;
   color: @foreground;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 * {
 /* font-family: "ttf ubuntu font family"; */
    font-family: "UbuntuMono Nerd";
-  font-size: 16px;
+  font-size: 12px;
   font-weight: bold;
   min-height: 0;
   
@@ -23,33 +23,27 @@
 
 
 window#waybar { 
-  background-color: #E2E3E3;
+  background-color: @color0;
    color: @color0;   
-  font-size: 16px;
+  font-size: 12px;
 }
 
 
 .modules-left {
-  background-color: @color0;
+  background-color: transparent;
   margin: 0px 8px 0px 8px;
-    font-size: 16px;
-
-   margin: 0;    
+    font-size: 12px;
+ 
 }
 
 
 
 .modules-right {
-   background-color: @color0; /*@color1;*/ 
-
+   background-color: transparent; /*@color1;*/ 
+  color: @foreground;  
   margin: 0px 5px 0px 5px;
-     font-size: 16px;
-     
-
-  margin: 0;    
-     
+     font-size: 12px;
 }
-
 
 
 
@@ -64,19 +58,22 @@ window#waybar {
 
 #workspaces {
    background-color: transparent;
-   font-size: 16px;
+   font-size: 12px;
 }
 
+
 #workspaces button {
-  font-size: 16px;
+  font-size: 12px;
   padding: 0px 6px 0px 6px; 
   min-width: 1px;
-  color: #E2E3E3;
+  color: #d4be98;
 }
+
+
 
 
 #workspaces button.visible {
-  font-size: 16px;
+  font-size: 12px;
   padding: 0px 6px 0px 6px; 
   min-width: 1px;
   color: #ea6962;
@@ -84,20 +81,30 @@ window#waybar {
 
 
 #workspaces button.focused { 
-  font-size: 16px;
+  font-size: 12px;
   padding: 0px 6px 0px 6px; 
-  background-color: #E2E3E3; 
-  color: #E2E3E3;    
+  background-color: @color1; 
+  color: @foreground;    
 }
 
 
 #workspaces button.active {
-  font-size: 16px;
+  font-size: 12px;
   padding: 0px 6px 0px 6px; 
-  color: #000000;    
-  background-color: #E2E3E3; 
+  color: @forground;    
+ border-bottom: 2px solid #ffffff;
 border-radius: 0px;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -139,42 +146,41 @@ border-radius: 0px;
 
  #tray {
   margin: 0px 0px 0px 0px;
-
- background-color: #1C1C1C;
+  color: @color1;  
 }
 
 
 #custom-powernc {
   color: #9891ca;  
-
+     border-bottom: 2px solid #9891ca; 
 }
 
 #clock {
-  color: #E2E3E3;  
-
+  color: #499dd7;  
+     border-bottom: 2px solid #499dd7;  
 }
 
 
 #memory {
-  color: #E2E3E3;  
-
+  color: #89AB5B;  
+     border-bottom: 2px solid #89AB5B;  
 }
 
 #cpu {
-  color: #E2E3E3;  
-
+  color: #499dd7;  
+     border-bottom: 2px solid #499dd7;  
 }
 
 
 #network { 
-  color: #E2E3E3;  
-
+  color: #9891ca;  
+     border-bottom: 2px solid #9891ca;  
 
 }
 
 #pulseaudio { 
-  color: #E2E3E3;
-
+  color: #e56160;
+     border-bottom: 2px solid #e56160; 
 }
 
 #backlight {
@@ -183,23 +189,16 @@ border-radius: 0px;
 }
 
 #battery {
-  color: #E2E3E3;
-
+  color: #ecbe7b;
+     border-bottom: 2px solid #ecbe7b; 
 }
 
 #bluetooth  {
   color: #499dd7;   
-   background-color: #E2E3E3;
 }
 
 #custom-hyprsunset  {
    color: #499dd7;   
-}
-
-
-#window { 
-  color: #1C1C1C;
- background-color: #E2E3E3;
 }
 
 
@@ -215,7 +214,7 @@ border-radius: 0px;
 
 
 #custom-menu {
-  color: #E2E3E3;   
+  color: #499dd7;   
  margin: 0px 6px 0px 0px;
    font-size: 14px;
 
