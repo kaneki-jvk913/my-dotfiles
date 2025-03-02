@@ -83,11 +83,21 @@
 
 
 ;; Bind Control + h to kill the current buffer
-(global-set-key (kbd "C-h") (lambda () (interactive) (kill-buffer (current-buffer))))
+(defun open-scratch-buffer ()
+  "Open the *scratch* buffer."
+  (interactive)
+  (switch-to-buffer (get-buffer-create "*scratch*"))
+  (lisp-interaction-mode))
+
+;; Bind the function to C-h
+(global-set-key (kbd "C-h") 'open-scratch-buffer)
 
 
 
-;; Bind Control + m to toggle read-only mode
+
+
+
+;; Bind Control + l to toggle read-only mode
 (global-set-key (kbd "C-l") 'read-only-mode)
 
 
@@ -129,22 +139,17 @@
 
 
 ;;home page
-    ;; Function to load custom content into the startup screen
-         (defun my-custom-startup-screen ()
-         "Display custom content from ~/scratch.txt in the startup screen."
-         (let ((buffer (get-buffer-create "*GNU Emacs*")))
-         (with-current-buffer buffer
-         (erase-buffer)
-         (insert-file-contents "~/.emacs.d/start")
-         (goto-char (point-max))
-   ;;      (set-buffer-modified-p nil)
-         (setq buffer-read-only t)
-         (goto-char (point-min)))
-         (switch-to-buffer buffer)))
-    ;; Override the fancy startup screen with the custom function
-         (setq inhibit-startup-screen nil) 
-         (add-hook 'after-init-hook 'my-custom-startup-screen)
+(defun load-custom-scratch-file ()
+  "Load custom content into the *scratch* buffer."
+  (let ((scratch-buffer (get-buffer-create "*scratch*"))
+        (custom-file "~/.emacs.d/start"))
+    (with-current-buffer scratch-buffer
+      (erase-buffer) ;; Clear existing content
+      (insert-file-contents custom-file)
+      (lisp-interaction-mode))))
 
+;; Run the function after Emacs starts
+(add-hook 'emacs-startup-hook 'load-custom-scratch-file)
 
 
 
@@ -186,6 +191,9 @@
 (column-number-mode 1)
 
 
+
+
+
 ;;----------------------------------------------------;;                       
 ;;---------------------- pakages ---------------------;;                   
 ;;----------------------------------------------------;;    
@@ -201,3 +209,17 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(add-to-list 'default-frame-alist '(undecorated . t))
