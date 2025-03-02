@@ -1,8 +1,6 @@
-          
 
 
-
-;; Add the theme directory to the load path
+;;; Add the theme directory to the load path
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/catppuccin")
 
 ;; Load the Catppuccin Mocha theme
