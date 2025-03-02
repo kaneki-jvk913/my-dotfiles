@@ -2,10 +2,8 @@
 
 # Define source and destination directories
 SRC_DIRS=(
-"/home/ayoub/.emacs.d"
 "/home/ayoub/.vim"
 "/home/ayoub/.bashrc"
-"/home/ayoub/.emacs"
 "/home/ayoub/.vimrc"
 "/home/ayoub/.zshrc"
 )

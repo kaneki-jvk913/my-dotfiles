@@ -27,6 +27,11 @@ alias rm='trash'
 
 alias dotfiles='/home/ayoub/.config/github-scripts/refresh-local-repo.sh'
 
+#alias emacs='emacs -nw'
+#alias emacs="emacsclient -t -a ''"              # $EDITOR use Emacs in terminal
+
+#alias emacs='emacsclient -nw'
+ alias emacs='emacsclient -nw -a "" -c'
 
 #-------------------------- theme ------------------------------#
 

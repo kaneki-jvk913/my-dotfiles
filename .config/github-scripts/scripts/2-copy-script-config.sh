@@ -20,9 +20,11 @@ SRC_DIRS=(
 "/home/ayoub/.config/polybar"
 "/home/ayoub/.config/swaync"
 "/home/ayoub/.config/sxhkd"
+"/home/ayoub/.config/vlc"
 "/home/ayoub/.config/waybar"
 "/home/ayoub/.config/wireplumber"
 "/home/ayoub/.config/wofi"
+"/home/ayoub/.config/brave-flags.conf"
 "/home/ayoub/.config/chrome-flags.conf"
 "/home/ayoub/.config/chromium-flags.conf"
 

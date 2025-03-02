@@ -11,12 +11,12 @@
 
 
 
-                                         
+                                      
 "-------------------------------------------------------------
 "---------------------------plugins---------------------------
 "-------------------------------------------------------------
 
-"|||||||||||| vim-airline plugin costumization ||||||||||||||||
+       "|||||||||||| vim-airline plugin costumization ||||||||||||||||
 
 " Set the airline theme
 let g:airline_theme = 'dracula'  " Change 'molokai' to your preferred theme
@@ -45,6 +45,9 @@ endif
 let g:airline_symbols.readonly = ''
 
 
+" 
+
+set rtp+=~/.vim/pack/plugins/start/indent-blankline
 
 
 "###############################################################################
@@ -132,8 +135,6 @@ vnoremap v p
 
 
 """""""""""""""""""""""""
-
-
 
 
 

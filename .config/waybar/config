@@ -29,7 +29,7 @@
 ],
   
      "modules-center": [
-
+ 
    ],
 
    "modules-right": [ 
@@ -48,15 +48,14 @@
    "clock",
    "tray"
 
-
   ],
 
 
 
 "tray": {
-    "icon-size": 15,
-    "spacing": 8,
-},
+     "icon-size": 15, 
+     "spacing": 8,  
+  },
 
   "custom/hyprsunset": {
         "exec": "echo 'HyprSunset Module Loaded'",
@@ -68,15 +67,15 @@
     },
 
 "custom/powernc": {
-     "tooltip":true,
-     "format": "    power menu  ",
-     "return-type": "json",
-     "exec-if": "which swaync-client",
-     "exec": "swaync-client -swb",
-     "on-click": "sleep 0.1 && swaync-client -t -sw",
-     "on-click-right": "swaync-client -d -sw",
-     "escape": true,
- },
+         "tooltip":true,
+         "format": "    power menu  ",
+         "return-type": "json",
+         "exec-if": "which swaync-client",
+         "exec": "swaync-client -swb",
+         "on-click": "sleep 0.1 && swaync-client -t -sw",
+         "on-click-right": "swaync-client -d -sw",
+         "escape": true,
+        },
 
 
 

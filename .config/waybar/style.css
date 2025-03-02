@@ -12,11 +12,12 @@
 
 * {
 /* font-family: "ttf ubuntu font family"; */
-   font-family: "UbuntuMono Nerd";
+   font-family: "UbuntuMono Nerd"; 
   font-size: 12px;
   font-weight: bold;
   min-height: 0;
   
+ 
 /*  
 "UbuntuMono Nerd"   */
 }
@@ -220,24 +221,6 @@ border-radius: 0px;
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
