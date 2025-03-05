@@ -1,0 +1,9 @@
+          # launch apps 
+    Key([mod], "Return", lazy.spawn("kitty"), desc="Launch Kitty terminal"),
+    Key([mod], "b", lazy.spawn("brave"), desc="Launch Kitty terminal"),
+
+
+          # control windows
+    Key([mod], "v", lazy.window.toggle_floating(), desc="floating focus window"),
+    Key([mod], "c", lazy.window.kill(), desc="Close the focused window"),
+    Key([mod], "Space", lazy.next_layout(), desc="maximize and minimize"),

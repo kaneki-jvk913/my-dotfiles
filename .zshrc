@@ -34,6 +34,10 @@ alias dotfiles='/home/ayoub/.config/github-scripts/refresh-local-repo.sh'
 #alias emacs='emacsclient -nw'
  alias emacs='emacsclient -nw -a "" -c'
 
+alias sudoemacs='sudo emacsclient -nw -a "" -c' 
+
+
+ 
 #-------------------------- theme ------------------------------#
 
 ZSH_THEME="robbyrussell"

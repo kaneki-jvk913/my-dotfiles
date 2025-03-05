@@ -7,9 +7,9 @@
 
 
 
-general.import = [ 
-"~/.config/alacritty/catppuccin-mocha.toml"
-]
+#  general.import = [ 
+#  "~/.config/alacritty/catppuccin-mocha.toml"
+#  ]
 
 [env]
 TERM = "xterm-256color"
@@ -30,3 +30,9 @@ y = 8
 
 
 
+
+  [colors.primary]                                                             
+  background = "#000000"
+  foreground = "#cdd6f4"
+ dim_foreground = "#7f849c"                                              
+ bright_foreground = "#cdd6f4"      
