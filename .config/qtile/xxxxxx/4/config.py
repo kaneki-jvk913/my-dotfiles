@@ -261,29 +261,14 @@ screens = [
 
 
 ###################### right widgets #############################
-######################## network speed 
-                   widget.Net(
-                   #format="{down} ↓↑ {up}",  # Display format          
-                   # background="#000000",     # Background color        
-                   padding=5,
-                    foreground="#9891ca",
-                     decorations=[
-                          BorderDecoration(
-                               colour = "#9891ca", 
-                               border_width = [0, 0, 3, 0],
-                          )
-                          ], 
 
-                   ),
-
-widget.Spacer(length = 8),
 ######################## cpu
                    widget.CPU(
                     format = '󰍛  Cpu: {load_percent}%',
-                    foreground="#499dd7",
+                    foreground="#98be65",
                      decorations=[
                           BorderDecoration(
-                               colour = "#499dd7", 
+                               colour = "#98be65", 
                                border_width = [0, 0, 3, 0],
                           )
                           ], 
@@ -294,7 +279,7 @@ widget.Spacer(length = 8),
 
 widget.Memory(                                                          
      foreground = "#98be65",                                    
-     format = '{MemUsed: .0f}{mm}',
+     format = '{MemUsed: .0f}{mm}',                                   
     fmt = '💾  Mem: {} used',                                       
       decorations=[                                                  
       BorderDecoration(                                          
@@ -303,55 +288,17 @@ widget.Memory(
       )
        ], 
 ), 
-
-widget.Spacer(length = 8),
-######################## battery
-#   widget.UPowerWidget(
-widget.Battery(  
-      foreground = "#ecbe7b",    
-   decorations=[                                                  
-      BorderDecoration(                                          
-        colour = "#ecbe7b",                                    
-        border_width = [0, 0, 3, 0],
-      )
-       ], 
-),
-
-widget.Spacer(length = 8),
-######################### volume pulse audio
-
-
-widget.Volume(
-    volume_app="pavucontrol",  # Volume control app
-    volume_up_command="amixer -D pulse sset Master 5%+",  
-    volume_down_command="amixer -D pulse sset Master 5%-", 
-    mute_command="amixer -D pulse sset Master toggle",  
-    fmt="Vol: {}",  # Display format
-foreground = "#e56160",    
- decorations=[                                                  
-      BorderDecoration(                                          
-        colour = "#e56160",                                    
-        border_width = [0, 0, 3, 0],
-      )
-       ], 
-),
-
-widget.Spacer(length = 8), 
-######################## clock
-     widget.Clock(
-         format="  %Y-%m-%d %a %I:%M %p",
-           foreground = "#499dd7",
-             decorations=[
-                     BorderDecoration(
-                         colour = "#499dd7",
-                         border_width = [0, 0, 2, 0],
-                     )
-                 ],
-     ),
-
-
-widget.Spacer(length = 8),   
-######  widget.QuickExit(),
+######################## network speed 
+                   widget.Net(
+                   #format="{down} ↓↑ {up}",  # Display format                  
+                   foreground="#ffffff",     # Text color                      
+                   # background="#000000",     # Background color        
+                   padding=5,
+                ),
+                   
+######################## clock                    
+                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+       #         widget.QuickExit(),
 
 ######################## systray
                 widget.Systray(),
@@ -360,14 +307,10 @@ widget.Spacer(length = 8),
 
 
             ],
-            size=22,
+            size=24,
             background="#1e2030",  # Background color
-            fontsize = 12,
-            font="Ubuntu Bold",
-            fontweight="bold",    # Make the font bolder
             opacity=1,  # Transparency
-            # padding = 0, 
-            #  margin=[5, 5, 0, 5],
+        #    margin=[5, 5, 0, 5],
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),

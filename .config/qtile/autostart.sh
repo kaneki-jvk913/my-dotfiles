@@ -22,7 +22,6 @@ nm-applet &
 
 setxkbmap fr us-azerty &
 
-/usr/bin/nitrogen --restore &
-/usr/bin/polybar  &
+nitrogen --restore &
 
 
