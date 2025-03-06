@@ -26,3 +26,7 @@ nitrogen --restore &
 
 xautolock -time 5 -locker "i3lock -c 000000" &
 
+/usr/lib/polkit-kde-authentication-agent-1 &
+
+
+

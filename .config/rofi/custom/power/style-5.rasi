@@ -19,7 +19,7 @@ configuration {
     mainbox-margin:              0px 470px;
     message-margin:              0px 350px;
     message-padding:             15px;
-    message-border-radius:       100%;
+    message-border-radius:       100%; 
     listview-spacing:            25px;
     element-padding:             45px 40px;
     element-border-radius:       100%;

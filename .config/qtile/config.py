@@ -13,7 +13,6 @@ from qtile_extras import widget
 from qtile_extras.widget.decorations import BorderDecoration
 
 mod = "mod4"
-terminal = guess_terminal()
 
 ################################################################################
 ################################## keybinds ####################################
@@ -31,7 +30,8 @@ keys = [
     Key([mod], "e", lazy.spawn("nautilus"), desc="Launch nautilus"),
     Key([mod], "b", lazy.spawn("brave")),
     Key([mod], "s", lazy.spawn("/home/ayoub/.config/qtile/scripts/spotify-brave.sh"), desc="spotify"),
-    Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Launch Rofi"),
+#    Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Launch Rofi"),
+    Key([mod], "r", lazy.spawn("/home/ayoub/.config/rofi/launchers/type-6/launcher.sh"), desc="Launch Rofi"),
 
           # control windows
     Key([mod], "v", lazy.window.toggle_floating(), desc="floating focus window"),
@@ -76,30 +76,15 @@ Key([], "XF86AudioPause", lazy.spawn("playerctl play-pause"), desc="Play/Pause m
 Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc="Play/Pause media"),
 Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Previous media track"),
 
-# Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
-    Key(
-        [mod, "shift"],
-        "Return",
-        lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack",
-    ),
+    
 
 
-    # Toggle between different layouts as defined below
+
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
-    Key(
-        [mod],
-        "f",
-        lazy.window.toggle_fullscreen(),
-        desc="Toggle fullscreen on the focused window",
-    ),
+    Key([mod],"f",lazy.window.toggle_fullscreen(),desc="Toggle fullscreen on the focused window",),
    
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+ #   Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "t", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ]
 
@@ -152,22 +137,22 @@ layouts = [
         margin=8,          # Outer gaps (space between windows and screen edges)
         border_width=2,     # Border width for windows
         border_focus="#46d9ff",  # Border color for focused window
-        border_normal="#000000", # Border color for unfocused windows
+        border_normal="#1e2030", # Border color for unfocused windows
     ),
 
-#    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    layout.Max(),
+   layout.Max(),
+   #  layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
+   #  layout.Stack(num_stacks=2),
+   #  layout.Bsp(),
+   #  layout.Matrix(),
    # layout.MonadTall(),
-# layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+   # layout.MonadWide(),
+   #  layout.RatioTile(),
+   #  layout.Tile(),
+   # layout.TreeTab(),
+   #  layout.VerticalTile(),
+   #  layout.Zoomy(),
 
 ]
 
@@ -331,13 +316,13 @@ screens = [
                  ),
         widget.WindowName(
                  foreground = colors[6],
-                 max_chars = 40
+                 max_chars = 120     #40 #default
                  ),
 
 
 
 
-
+############################## network speed
 widget.Net(
     interface="wlan0", 
  format="     {up: .2f} KB/s     {down: .2f} KB/s ",
@@ -356,6 +341,7 @@ decorations=[
                  ],
                  ),
         widget.Spacer(length = 8),
+############################### cpu
         widget.CPU(
                  format = ' 💻  Cpu: {load_percent}% ',
                  foreground = colors[4],
@@ -367,8 +353,9 @@ decorations=[
                  ],
                  ),
         widget.Spacer(length = 8),
+############################### memory ram
         widget.Memory(
-                 foreground = colors[8],
+                 foreground = "#499dd7",
                 # format = '{MemUsed: .0f}{mm}',
                 # fmt = ' 💾  Mem: {} used ',
  
@@ -377,16 +364,13 @@ decorations=[
 
                  decorations=[
                      BorderDecoration(
-                         colour = colors[8],
+                         colour = "#499dd7",
                          border_width = [0, 0, 2, 0],
                      )
                  ],
                  ),
         widget.Spacer(length = 8),
-
-
-
-
+############################### battery
 widget.Battery(
     format='     {percent:2.0%} {char}' ,
     charge_char='  ',
@@ -406,10 +390,10 @@ widget.Battery(
                  ],
                  ),
         widget.Spacer(length = 8),
-
+############################### volume
 widget.GenPollText(
      foreground = colors[7],   
-    fmt="  🕫 Vol: {}% ",
+    fmt="  🕫 Volume: {}% ",
     update_interval=0.1,
     func=lambda: str(int(float(subprocess.check_output(
         "wpctl get-volume @DEFAULT_AUDIO_SINK@", shell=True
@@ -423,15 +407,22 @@ widget.GenPollText(
                      )
                  ],
                  ),
+
         widget.Spacer(length = 8),
-
-
-          widget.TextBox(
-foreground = colors[4],
-               text="   powermenu ",  # Use a Nerd Font icon or any text
-                    mouse_callbacks={
-          "Button1": lazy.spawn("/home/ayoub/.config/rofi/custom/power/powermenu.sh")
-                    },
+############################ power menu
+     widget.GenPollText( 
+        foreground = colors[4],
+            fmt="☀️ Brightness  {0}% ",
+        update_interval=0.1,
+        func=lambda: subprocess.check_output(
+        "brightnessctl g", shell=True
+        ).decode("utf-8").strip(),
+        
+          mouse_callbacks={
+        "Button1": lambda: subprocess.call(["brightnessctl", "set", "+10%"]),  # Left click
+        "Button3": lambda: subprocess.call(["brightnessctl", "set", "10%-"]),  # Right click
+    },
+                    
                     decorations=[
                      BorderDecoration(
                          colour = colors[4],
@@ -440,20 +431,23 @@ foreground = colors[4],
                  ],
                  ),
         widget.Spacer(length = 8),
+############################ clock
         widget.Clock(
-                 foreground = colors[8],
-                 format = "   %a, %d %b - %H:%M ",
+                 foreground = "#499dd7",
+                 format = "    %a, %d %b - %H:%M  ",
                  decorations=[
                      BorderDecoration(
-                         colour = colors[8],
+                         colour = "#499dd7",
                          border_width = [0, 0, 2, 0],
                      )
                  ],
                  ),
         widget.Spacer(length = 8),
+######################## systray
         widget.Systray(padding = 3),
+        
         widget.Spacer(length = 8),
-
+#########################
 
 
 
