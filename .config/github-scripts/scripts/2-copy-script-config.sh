@@ -19,6 +19,7 @@ SRC_DIRS=(
 "/home/ayoub/.config/picom"
 "/home/ayoub/.config/polybar"
 "/home/ayoub/.config/qtile"
+"/home/ayoub/.config/rofi"
 "/home/ayoub/.config/swaync"
 "/home/ayoub/.config/sxhkd"
 "/home/ayoub/.config/vlc"

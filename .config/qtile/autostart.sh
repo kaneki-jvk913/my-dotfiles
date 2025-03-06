@@ -24,4 +24,5 @@ setxkbmap fr us-azerty &
 
 nitrogen --restore &
 
+xautolock -time 5 -locker "i3lock -c 000000" &
 

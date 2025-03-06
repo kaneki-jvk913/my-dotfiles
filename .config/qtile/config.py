@@ -29,7 +29,7 @@ keys = [
           # launch apps 
     Key([mod], "Return", lazy.spawn("kitty"), desc="Launch Kitty terminal"),
     Key([mod], "e", lazy.spawn("nautilus"), desc="Launch nautilus"),
-    Key([mod], "b", lazy.spawn("brave"), desc="Launch Kitty terminal"),
+    Key([mod], "b", lazy.spawn("brave")),
     Key([mod], "s", lazy.spawn("/home/ayoub/.config/qtile/scripts/spotify-brave.sh"), desc="spotify"),
     Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Launch Rofi"),
 
@@ -58,8 +58,23 @@ keys = [
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
 
+    Key([mod], "l", lazy.spawn("/home/ayoub/.config/rofi/custom/power/powermenu.sh"), desc="power menu"),
 
 
+
+    # Volume keys
+
+Key([], "XF86AudioRaiseVolume", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")),
+Key([], "XF86AudioLowerVolume", lazy.spawn("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")),
+Key([], "XF86AudioMute", lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")),
+Key([], "XF86AudioMicMute", lazy.spawn("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle")),
+
+
+    # media 
+Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc="Next media track"),
+Key([], "XF86AudioPause", lazy.spawn("playerctl play-pause"), desc="Play/Pause media"),
+Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc="Play/Pause media"),
+Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Previous media track"),
 
 # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
@@ -136,8 +151,8 @@ layouts = [
    layout.MonadTall(
         margin=8,          # Outer gaps (space between windows and screen edges)
         border_width=2,     # Border width for windows
-        border_focus="#ff0000",  # Border color for focused window
-        border_normal="#444444", # Border color for unfocused windows
+        border_focus="#46d9ff",  # Border color for focused window
+        border_normal="#000000", # Border color for unfocused windows
     ),
 
 #    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
@@ -263,7 +278,10 @@ screens = [
                 widget.Image(
                  filename = "~/.config/qtile/icons/logo.png",
                  scale = "False",
-                 mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm)},
+                  mouse_callbacks={    "Button1": lazy.spawn("/home/ayoub/.config/rofi/custom/power/powermenu.sh")},
+ 
+
+            #     mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(kitty)},
                  ),
         widget.Prompt(
                  font = "Ubuntu Mono",
@@ -315,12 +333,22 @@ screens = [
                  foreground = colors[6],
                  max_chars = 40
                  ),
-        widget.GenPollText(
-                 update_interval = 300,
-                 func = lambda: subprocess.check_output("printf $(uname -r)", shell=True, text=True),
-                 foreground = colors[3],
-                 fmt = '❤  {}',
-                 decorations=[
+
+
+
+
+
+widget.Net(
+    interface="wlan0", 
+ format="     {up: .2f} KB/s     {down: .2f} KB/s ",
+# format="📡 ↑ {up} ↓ {down}",    
+    use_bits=False,  #Set True for bits(Kbps/Mbps),False for bytes(KB/s, MB/s)
+    update_interval=1,
+     prefix='k',
+    foreground = colors[3],
+
+
+decorations=[
                      BorderDecoration(
                          colour = colors[3],
                          border_width = [0, 0, 2, 0],
@@ -329,7 +357,7 @@ screens = [
                  ),
         widget.Spacer(length = 8),
         widget.CPU(
-                 format = '▓  Cpu: {load_percent}%',
+                 format = ' 💻  Cpu: {load_percent}% ',
                  foreground = colors[4],
                  decorations=[
                      BorderDecoration(
@@ -341,9 +369,12 @@ screens = [
         widget.Spacer(length = 8),
         widget.Memory(
                  foreground = colors[8],
-                 mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e htop')},
-                 format = '{MemUsed: .0f}{mm}',
-                 fmt = '🖥  Mem: {} used',
+                # format = '{MemUsed: .0f}{mm}',
+                # fmt = ' 💾  Mem: {} used ',
+ 
+                format="Mem: {MemUsed:.1f} GB used",
+    measure_mem="G", 
+
                  decorations=[
                      BorderDecoration(
                          colour = colors[8],
@@ -352,16 +383,22 @@ screens = [
                  ],
                  ),
         widget.Spacer(length = 8),
-        widget.DF(
-                 update_interval = 60,
-                 foreground = colors[5],
-                 mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e df')},
-                 partition = '/',
-                 #format = '[{p}] {uf}{m} ({r:.0f}%)',
-                 format = '{uf}{m} free',
-                 fmt = '🖴  Disk: {}',
-                 visible_on_warn = False,
-                 decorations=[
+
+
+
+
+widget.Battery(
+    format='     {percent:2.0%} {char}' ,
+    charge_char='  ',
+    discharge_char='↓',
+    empty_char='!',
+    full_char='✓',
+    show_short_text=False,
+    update_interval=60,
+    notify_below=20,  
+
+       foreground = colors[5], 
+            decorations=[
                      BorderDecoration(
                          colour = colors[5],
                          border_width = [0, 0, 2, 0],
@@ -369,9 +406,16 @@ screens = [
                  ],
                  ),
         widget.Spacer(length = 8),
-        widget.Volume(
-                 foreground = colors[7],
-                 fmt = '🕫  Vol: {}',
+
+widget.GenPollText(
+     foreground = colors[7],   
+    fmt="  🕫 Vol: {}% ",
+    update_interval=0.1,
+    func=lambda: str(int(float(subprocess.check_output(
+        "wpctl get-volume @DEFAULT_AUDIO_SINK@", shell=True
+    ).decode("utf-8").strip().split()[1]) * 100)),
+
+
                  decorations=[
                      BorderDecoration(
                          colour = colors[7],
@@ -380,10 +424,15 @@ screens = [
                  ],
                  ),
         widget.Spacer(length = 8),
-        widget.KeyboardLayout(
-                 foreground = colors[4],
-                 fmt = '⌨  Kbd: {}',
-                 decorations=[
+
+
+          widget.TextBox(
+foreground = colors[4],
+               text="   powermenu ",  # Use a Nerd Font icon or any text
+                    mouse_callbacks={
+          "Button1": lazy.spawn("/home/ayoub/.config/rofi/custom/power/powermenu.sh")
+                    },
+                    decorations=[
                      BorderDecoration(
                          colour = colors[4],
                          border_width = [0, 0, 2, 0],
@@ -393,7 +442,7 @@ screens = [
         widget.Spacer(length = 8),
         widget.Clock(
                  foreground = colors[8],
-                 format = "⏱  %a, %b %d - %H:%M",
+                 format = "   %a, %d %b - %H:%M ",
                  decorations=[
                      BorderDecoration(
                          colour = colors[8],
@@ -406,8 +455,11 @@ screens = [
         widget.Spacer(length = 8),
 
 
+
+
+
     ],
-            size=22,
+            size=25,  # 22
             background="#1e2030",  # Background color
  #           fontsize = 12,
   #          font="Ubuntu Bold",
@@ -415,7 +467,7 @@ screens = [
     #        opacity=1,  # Transparency
 
       font="Ubuntu Bold",
-      fontsize = 12,
+      fontsize = 16,
       padding = 0,
    #   background=colors[0]   
 
@@ -428,7 +480,12 @@ screens = [
 
 
 
-
+widget_defaults = dict(
+    font="Ubuntu Bold",
+    fontsize = 12,
+    padding = 0,
+    background=colors[0]
+)
 
 
 
@@ -441,6 +498,8 @@ screens = [
  #           fontweight="bold",    # Make the font bolder
   #          opacity=1,  # Transparency
 
+
+#####################################################3
 
 
 
