@@ -13,18 +13,18 @@ COLORSCHEME="DoomOne"
 #### AUTOSTART ####
 /usr/lib/polkit-kde-authentication-agent-1 &
 sxhkd &
-#picom &
+picom &
 polybar &
 nitrogen --restore &
 killall nm-applet && nm-applet &
 killall volumeicon && volumeicon &
 /usr/bin/emacs --daemon &
-
+setxkbmap fr us-azerty &
 
 polybar-bspwm &
 
 ### Select only ONE of the following four ways to set the wallpaper.
-xargs xwallpaper --stretch < ~/.cache/wall &
+#xargs xwallpaper --stretch < ~/.cache/wall &
 # ~/.fehbg &
 # feh --randomize --bg-fill /usr/share/backgrounds/dtos-backgrounds/* &
 # nitrogen --restore &
@@ -82,5 +82,5 @@ bspc rule -a Screenkey manage=off
 
 # setxkbmap -layout fr
 
-xkbcomp -w 0 ~/custom_us_azerty.xkb $DISPLAY &
+# xkbcomp -w 0 ~/custom_us_azerty.xkb $DISPLAY &
 

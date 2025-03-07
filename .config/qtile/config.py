@@ -58,8 +58,9 @@ keys = [
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
 
-    Key([mod], "l", lazy.spawn("/home/ayoub/.config/rofi/custom/power/powermenu.sh"), desc="power menu"),
-
+    Key([mod], "p", lazy.spawn("/home/ayoub/.config/rofi/custom/power/powermenu.sh"), desc="power menu"),
+    Key([mod], "l", lazy.spawn("i3lock -i /home/ayoub/Downloads/photo/wallpaper/0-77.png -f -k "), desc="i3lock"),
+    
 
 
     # Volume keys
@@ -134,23 +135,24 @@ for i in groups:
 layouts = [
 
    layout.MonadTall(
-        margin=8,          # Outer gaps (space between windows and screen edges)
-        border_width=2,     # Border width for windows
+        margin=8,        # Outer gaps between windows and screen edges
+        border_width=2,   # Border width for windows
         border_focus="#46d9ff",  # Border color for focused window
-        border_normal="#1e2030", # Border color for unfocused windows
-    ),
+        border_normal= "#1e2030", # Border color for unfocused windows
+        min_ratio=0.1,  # Set a lower value for smaller minimum sizes
+        ),
 
    layout.Max(),
-   #  layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    # Try more layouts by unleashing below layouts.
+# Try more layouts by unleashing below layouts.
+   #  layout.Columns( ),
    #  layout.Stack(num_stacks=2),
    #  layout.Bsp(),
    #  layout.Matrix(),
-   # layout.MonadTall(),
-   # layout.MonadWide(),
+   #  layout.MonadTall(),
+   #  layout.MonadWide(),
    #  layout.RatioTile(),
    #  layout.Tile(),
-   # layout.TreeTab(),
+   #  layout.TreeTab(),
    #  layout.VerticalTile(),
    #  layout.Zoomy(),
 
@@ -274,16 +276,16 @@ screens = [
                  foreground = colors[1]
         ),
         widget.GroupBox(
-                 fontsize = 11,
+             #    fontsize = 11,
                  margin_y = 5,
                  margin_x = 5,
                  padding_y = 0,
                  padding_x = 1,
                  borderwidth = 3,
-                 active = colors[8],
+                 active = colors[8],   # 8
                  inactive = colors[1],
                  rounded = False,
-                 highlight_color = colors[2],
+                 highlight_color = colors[0],
                  highlight_method = "line",
                  this_current_screen_border = colors[7],
                  this_screen_border = colors [4],
@@ -323,53 +325,47 @@ screens = [
 
 
 ############################## network speed
-widget.Net(
-    interface="wlan0", 
- format="     {up: .2f} KB/s     {down: .2f} KB/s ",
-# format="📡 ↑ {up} ↓ {down}",    
-    use_bits=False,  #Set True for bits(Kbps/Mbps),False for bytes(KB/s, MB/s)
-    update_interval=1,
-     prefix='k',
-    foreground = colors[3],
+        widget.Net(
+                interface="wlan0", 
+                format="     {up: .2f} KB/s     {down: .2f} KB/s ",
+                use_bits=False, 
+                update_interval=1,
+                prefix='k',
+                foreground = colors[3],
+                     decorations=[
+                          BorderDecoration(
+                          colour = colors[3],
+                          border_width = [0, 0, 2, 0],
+                          )
+                     ],
+                ),
 
-
-decorations=[
-                     BorderDecoration(
-                         colour = colors[3],
-                         border_width = [0, 0, 2, 0],
-                     )
-                 ],
-                 ),
-        widget.Spacer(length = 8),
+widget.Spacer(length = 8),
 ############################### cpu
         widget.CPU(
-                 format = ' 💻  Cpu: {load_percent}% ',
-                 foreground = colors[4],
-                 decorations=[
-                     BorderDecoration(
+                format = ' 💻  Cpu: {load_percent}% ',
+                foreground = colors[4],
+                     decorations=[
+                         BorderDecoration(
                          colour = colors[4],
                          border_width = [0, 0, 2, 0],
-                     )
-                 ],
-                 ),
-        widget.Spacer(length = 8),
+                         )
+                     ],
+                ),
+widget.Spacer(length = 8),
 ############################### memory ram
         widget.Memory(
-                 foreground = "#499dd7",
-                # format = '{MemUsed: .0f}{mm}',
-                # fmt = ' 💾  Mem: {} used ',
- 
+                foreground = "#499dd7",
                 format="Mem: {MemUsed:.1f} GB used",
-    measure_mem="G", 
-
-                 decorations=[
-                     BorderDecoration(
-                         colour = "#499dd7",
-                         border_width = [0, 0, 2, 0],
-                     )
-                 ],
-                 ),
-        widget.Spacer(length = 8),
+                measure_mem="G",
+                    decorations=[
+                        BorderDecoration(
+                        colour = "#499dd7",
+                        border_width = [0, 0, 2, 0],
+                        )
+                    ],
+                ),
+widget.Spacer(length = 8),
 ############################### battery
 widget.Battery(
     format='     {percent:2.0%} {char}' ,

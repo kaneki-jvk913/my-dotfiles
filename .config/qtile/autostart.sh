@@ -24,9 +24,9 @@ setxkbmap fr us-azerty &
 
 nitrogen --restore &
 
-xautolock -time 5 -locker "i3lock -c 000000" &
+xautolock -time 5 -locker "i3lock -i /home/ayoub/Downloads/photo/wallpaper/0-77.png -f -k" &
 
 /usr/lib/polkit-kde-authentication-agent-1 &
 
-
+picom &
 
