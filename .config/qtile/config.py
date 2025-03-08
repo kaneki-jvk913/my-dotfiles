@@ -17,13 +17,11 @@ mod = "mod4"
 ################################################################################
 ################################## keybinds ####################################
 ################################################################################
+# A list of available commands that can be bound to keys can be found
+# at https://docs.qtile.org/en/latest/manual/config/lazy.html
 
 
 keys = [
-
-# A list of available commands that can be bound to keys can be found
-    # at https://docs.qtile.org/en/latest/manual/config/lazy.html
- 
 
           # launch apps 
     Key([mod], "Return", lazy.spawn("kitty"), desc="Launch Kitty terminal"),
@@ -136,10 +134,10 @@ layouts = [
 
    layout.MonadTall(
         margin=8,        # Outer gaps between windows and screen edges
-        border_width=2,   # Border width for windows
+        border_width=2,  # Border width for windows
         border_focus="#46d9ff",  # Border color for focused window
         border_normal= "#1e2030", # Border color for unfocused windows
-        min_ratio=0.1,  # Set a lower value for smaller minimum sizes
+        min_ratio=0.04,  # Set a lower value for smaller minimum sizes
         ),
 
    layout.Max(),
@@ -262,6 +260,20 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+
+        widget.Spacer(length = 8),
+
+widget.GenPollText(
+    fmt="󰣇 ",
+    update_interval=1,
+    mouse_callbacks={
+        "Button1": lambda: qtile.cmd_spawn("/home/ayoub/.config/rofi/custom/power/powermenu.sh")
+    },
+    foreground= colors[8],  # Optional: customize color
+    fontsize=18,  # Optional: adjust font size
+),
+
+
                 widget.Image(
                  filename = "~/.config/qtile/icons/logo.png",
                  scale = "False",
@@ -408,7 +420,9 @@ widget.GenPollText(
 ############################ power menu
      widget.GenPollText( 
         foreground = colors[4],
-            fmt="☀️ Brightness  {0}% ",
+#            fmt="☀️ Brightness  {0}% ",
+             fmt="☀️ Brightness  ",
+
         update_interval=0.1,
         func=lambda: subprocess.check_output(
         "brightnessctl g", shell=True
@@ -438,11 +452,11 @@ widget.GenPollText(
                      )
                  ],
                  ),
-        widget.Spacer(length = 8),
+ #       widget.Spacer(length = 8),
 ######################## systray
         widget.Systray(padding = 3),
         
-        widget.Spacer(length = 8),
+        widget.Spacer(length = 4),
 #########################
 
 
