@@ -36,6 +36,7 @@ alias dotfiles='/home/ayoub/.config/github-scripts/refresh-local-repo.sh'
 
 alias sudoemacs='sudo emacsclient -nw -a "" -c' 
 
+ alias dwm-startup='/home/ayoub/.config/dwm/startup.sh'
 
  
 #-------------------------- theme ------------------------------#

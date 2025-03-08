@@ -261,17 +261,17 @@ screens = [
         top=bar.Bar(
             [
 
-        widget.Spacer(length = 8),
+#        widget.Spacer(length = 8),
 
-widget.GenPollText(
-    fmt="󰣇 ",
-    update_interval=1,
-    mouse_callbacks={
-        "Button1": lambda: qtile.cmd_spawn("/home/ayoub/.config/rofi/custom/power/powermenu.sh")
-    },
-    foreground= colors[8],  # Optional: customize color
-    fontsize=18,  # Optional: adjust font size
-),
+#widget.GenPollText(
+#    fmt="󰣇 ",
+#    update_interval=1,
+#    mouse_callbacks={
+#        "Button1": lambda: qtile.cmd_spawn("/home/ayoub/.config/rofi/custom/power/powermenu.sh")
+#    },
+#    foreground= colors[8],  # Optional: customize color
+#    fontsize=18,  # Optional: adjust font size
+# ),
 
 
                 widget.Image(

@@ -6,6 +6,7 @@ SRC_DIRS=(
 "/home/ayoub/.config/bspwm"
 "/home/ayoub/.config/btop"
 "/home/ayoub/.config/cava"
+"/home/ayoub/.config/dwm"
 "/home/ayoub/.config/fastfetch"
 "/home/ayoub/.config/github-scripts"
 "/home/ayoub/.config/gtk-2.0"
