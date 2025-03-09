@@ -1,4 +1,3 @@
-#!/bin/bash
 
 
 #feh --bg-scale ~/Pictures/wallpaper.jpg &
@@ -18,8 +17,6 @@ nitrogen --restore &
 
 /usr/bin/emacs --daemon &  
 
+slstatus &
 
-
-
-
-
+# dwmblocks &
