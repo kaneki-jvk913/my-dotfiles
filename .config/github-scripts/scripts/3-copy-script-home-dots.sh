@@ -2,6 +2,7 @@
 
 # Define source and destination directories
 SRC_DIRS=(
+"/home/ayoub/dwm"
 "/home/ayoub/.dwm"
 "/home/ayoub/.emacs.d"
 "/home/ayoub/.vim"

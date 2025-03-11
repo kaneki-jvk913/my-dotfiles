@@ -3,7 +3,7 @@ nitrogen --restore &
 
 slstatus &
 
-xautolock -time 5 -locker "i3lock -i /home/ayoub/Downloads/photo/wallpaper/0-77.png -f -k" &  
+xautolock -time 10 -locker "i3lock -i /home/ayoub/Downloads/photo/wallpaper/0-77.png -f -k" &  
 
 #feh --bg-scale ~/Pictures/wallpaper.jpg &
 
