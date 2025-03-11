@@ -69,7 +69,7 @@ static const struct arg args[] = {
 
 
    //    {wifi_essid, "   %s |", "wlan0"},
-       {run_command, " [   %s ]",  "/home/ayoub/.dwm/network-speed.py" },
+       {run_command, "[   %s ]",  "/home/ayoub/.dwm/network-speed.py" },
 
        { cpu_perc,    " [   %s%% ]",    NULL },
        { ram_used,    " [   %s ]",    NULL },       
@@ -78,7 +78,7 @@ static const struct arg args[] = {
        {battery_perc, " [   %s% ]",   "BAT1"},
        {run_command,  " [   %s%% ]",   "wpctl get-volume @DEFAULT_SINK@ | awk '{print int($2 * 100)}'"},
    
-       { datetime,    " [ %s ] ",    "%F %T" }, 
+       { datetime,    " [ %s ]",    "%F %T" }, 
 
 
 };
