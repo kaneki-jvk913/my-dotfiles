@@ -1,0 +1,74 @@
+-- ~/.xmobarrc
+-- DWM-style configuration for xmobar
+
+Config { font = "xft:Source Code Pro:pixelsize=12:antialias=true:hinting=true"
+       , additionalFonts = ["xft:Font Awesome 6 Free Solid:pixelsize=12"]
+       , bgColor = "#222222"
+       , fgColor = "#bbbbbb"
+       , position = TopW L 100
+       , lowerOnStart = True
+       , hideOnStart = False
+       , allDesktops = True
+       , persistent = True
+       , iconRoot = ".config/xmobar/icons"
+       , commands = [
+            -- Get workspaces/tags from xmonad
+            Run UnsafeStdinReader
+            
+            -- CPU usage
+          , Run MultiCpu [ "--template", "<fn=1>\xf2db</fn> <total>%"
+                         , "--Low", "50"
+                         , "--High", "85"
+                         , "--low", "#bbbbbb"
+                         , "--normal", "#bbbbbb"
+                         , "--high", "#ff0000"
+                         ] 10
+          
+          -- Memory usage
+          , Run Memory [ "--template", "<fn=1>\xf538</fn> <usedratio>%"
+                       , "--Low", "20"
+                       , "--High", "90"
+                       , "--low", "#bbbbbb"
+                       , "--normal", "#bbbbbb"
+                       , "--high", "#ff0000"
+                       ] 10
+          
+          -- Battery
+          , Run Battery [ "--template", "<acstatus>"
+                        , "--Low", "10"
+                        , "--High", "80"
+                        , "--low", "#ff0000"
+                        , "--normal", "#bbbbbb"
+                        , "--high", "#bbbbbb"
+                        , "--", -- battery specific options
+                          -- discharging status
+                          "-o", "<fn=1>\xf240</fn> <left>% (<timeleft>)"
+                          -- AC "on" status
+                        , "-O", "<fn=1>\xf1e6</fn> <left>%"
+                          -- charged status
+                        , "-i", "<fn=1>\xf1e6</fn> <left>%"
+                        ] 50
+          
+          -- Volume
+          , Run Alsa "default" "Master" [ "--template", "<fn=1>\xf028</fn> <volume>%"
+                                        , "--suffix", "True"
+                                        ]
+          
+          -- Network
+          , Run Network "wlp2s0" [ "--template", "<fn=1>\xf1eb</fn> <rx>KB|<tx>KB"
+                                 , "--Low", "1000"
+                                 , "--High", "5000"
+                                 , "--low", "#bbbbbb"
+                                 , "--normal", "#bbbbbb"
+                                 , "--high", "#bbbbbb"
+                                 ] 10
+          
+          -- Date and time
+          , Run Date "%a %b %_d %H:%M" "date" 10
+        ]
+       
+       -- Layout: tags on left, window title in center, status on right (DWM style)
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %UnsafeStdinReader% }{ %multicpu% | %memory% | %wlp2s0% | %alsa:default:Master% | %battery% | <fn=1>\xf017</fn> %date% "
+       }

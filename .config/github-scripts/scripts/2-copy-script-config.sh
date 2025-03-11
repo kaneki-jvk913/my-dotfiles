@@ -27,10 +27,11 @@ SRC_DIRS=(
 "/home/ayoub/.config/waybar"
 "/home/ayoub/.config/wireplumber"
 "/home/ayoub/.config/wofi"
+"/home/ayoub/.config/xmobar"
 "/home/ayoub/.config/brave-flags.conf"
 "/home/ayoub/.config/chrome-flags.conf"
 "/home/ayoub/.config/chromium-flags.conf"
-
+"/home/ayoub/.config/colors-best.css"
 
 )
 DEST_DIR="/home/ayoub/my-dotfiles/.config"

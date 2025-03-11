@@ -1,5 +1,5 @@
 
-BBimport os
+import os
 import subprocess
 import colors
 

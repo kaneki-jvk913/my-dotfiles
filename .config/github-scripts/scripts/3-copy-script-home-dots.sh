@@ -5,6 +5,7 @@ SRC_DIRS=(
 "/home/ayoub/.dwm"
 "/home/ayoub/.emacs.d"
 "/home/ayoub/.vim"
+"/home/ayoub/.xmonad"
 "/home/ayoub/.bashrc"
 "/home/ayoub/.emacs"
 "/home/ayoub/.vimrc"

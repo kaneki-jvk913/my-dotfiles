@@ -1,0 +1,6 @@
+$ ghc --make xmonad.hs -i -ilib -fforce-recomp -main-is main -dynamic -v0 -outputdir /home/ayoub/.xmonad/build-x86_64-linux -o /home/ayoub/.xmonad/xmonad-x86_64-linux
+
+xmonad.hs:306:3: error: parse error on input ‘}’
+    |
+306 |   }        
+    |   ^

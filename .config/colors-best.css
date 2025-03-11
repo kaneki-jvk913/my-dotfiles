@@ -1,0 +1,40 @@
+
+/* dwm default */
+  4 static const char col_gray1[]       = #222222 ;                          
+  5 static const char col_gray2[]       = #444444 ;                          
+  6 static const char col_gray3[]       = #bbbbbb ;                          
+  7 static const char col_gray4[]       = #eeeeee ;                          
+  8 static const char col_cyan[]        = #005577 ;  
+
+ #ffffff
+  
+ #d4be98;
+ #1d2021;
+
+ #2A3036; grey
+ #1e2030; catpucin mocha
+ #499dd7;
+ #9891ca;
+ #e56160;
+
+
+ #ecbe7b;
+ #89AB5B;
+ #46d9ff;
+
+
+
+ titus dwm    #323a44     #485768     #323a44
+
+ static const char normbordercolor[]          = #3B4252
+static const char normbgcolor[]               = #2E3440
+static const char normfgcolor[]               = #D8DEE9
+static const char selbordercolor[]            = #434C5E
+static const char selbgcolor[]                = #434C5E
+static const char selfgcolor[]                = #ECEFF4
+
+static const char *colors[][3] = {
+    /*               fg           bg           border   */
+    [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
+    [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor },
+};
