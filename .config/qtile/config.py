@@ -9,8 +9,6 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 
-from qtile_extras import widget
-from qtile_extras.widget.decorations import BorderDecoration
 
 mod = "mod4"
 
@@ -24,7 +22,7 @@ mod = "mod4"
 keys = [
 
           # launch apps 
-    Key([mod], "Return", lazy.spawn("kitty"), desc="Launch Kitty terminal"),
+    Key([mod], "Return", lazy.spawn("tabbed -r 2 st -w ''"), desc="Launch terminal"),
     Key([mod], "e", lazy.spawn("nautilus"), desc="Launch nautilus"),
     Key([mod], "b", lazy.spawn("brave")),
     Key([mod], "s", lazy.spawn("/home/ayoub/.config/qtile/scripts/spotify-brave.sh"), desc="spotify"),
@@ -343,13 +341,7 @@ screens = [
                 use_bits=False, 
                 update_interval=1,
                 prefix='k',
-                foreground = colors[3],
-                     decorations=[
-                          BorderDecoration(
-                          colour = colors[3],
-                          border_width = [0, 0, 2, 0],
-                          )
-                     ],
+                foreground = colors[3],             
                 ),
 
 widget.Spacer(length = 8),
@@ -357,26 +349,16 @@ widget.Spacer(length = 8),
         widget.CPU(
                 format = ' 💻  Cpu: {load_percent}% ',
                 foreground = colors[4],
-                     decorations=[
-                         BorderDecoration(
-                         colour = colors[4],
-                         border_width = [0, 0, 2, 0],
-                         )
-                     ],
                 ),
+        
 widget.Spacer(length = 8),
 ############################### memory ram
         widget.Memory(
                 foreground = "#499dd7",
                 format="Mem: {MemUsed:.1f} GB used",
                 measure_mem="G",
-                    decorations=[
-                        BorderDecoration(
-                        colour = "#499dd7",
-                        border_width = [0, 0, 2, 0],
-                        )
-                    ],
                 ),
+
 widget.Spacer(length = 8),
 ############################### battery
 widget.Battery(
@@ -390,12 +372,6 @@ widget.Battery(
     notify_below=20,  
 
        foreground = colors[5], 
-            decorations=[
-                     BorderDecoration(
-                         colour = colors[5],
-                         border_width = [0, 0, 2, 0],
-                     )
-                 ],
                  ),
         widget.Spacer(length = 8),
 ############################### volume
@@ -408,12 +384,6 @@ widget.GenPollText(
     ).decode("utf-8").strip().split()[1]) * 100)),
 
 
-                 decorations=[
-                     BorderDecoration(
-                         colour = colors[7],
-                         border_width = [0, 0, 2, 0],
-                     )
-                 ],
                  ),
 
         widget.Spacer(length = 8),
@@ -433,24 +403,12 @@ widget.GenPollText(
         "Button3": lambda: subprocess.call(["brightnessctl", "set", "10%-"]),  # Right click
     },
                     
-                    decorations=[
-                     BorderDecoration(
-                         colour = colors[4],
-                         border_width = [0, 0, 2, 0],
-                     )
-                 ],
                  ),
         widget.Spacer(length = 8),
 ############################ clock
         widget.Clock(
                  foreground = "#499dd7",
                  format = "    %a, %d %b - %H:%M  ",
-                 decorations=[
-                     BorderDecoration(
-                         colour = "#499dd7",
-                         border_width = [0, 0, 2, 0],
-                     )
-                 ],
                  ),
  #       widget.Spacer(length = 8),
 ######################## systray

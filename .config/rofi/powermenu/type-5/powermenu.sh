@@ -19,7 +19,7 @@ uptime="`uptime -p | sed -e 's/up //g'`"
 host=`hostname`
 
 # Options
-hibernate='-'
+hibernate='󰒲'
 shutdown='󰐥'
 reboot='󰑐'
 lock='󰌾'
@@ -68,7 +68,9 @@ run_cmd() {
 		elif [[ $1 == '--reboot' ]]; then
 			systemctl reboot
 		elif [[ $1 == '--hibernate' ]]; then
-			systemctl hibernate
+		    	mpc -q pause
+			amixer set Master mute
+			systemctl suspend
 		elif [[ $1 == '--suspend' ]]; then
 			mpc -q pause
 			amixer set Master mute
@@ -99,7 +101,7 @@ case ${chosen} in
 		run_cmd --reboot
         ;;
     $hibernate)
-		run_cmd --hibernate
+		run_cmd --suspend
         ;;
     $lock)
 		if [[ -x '/usr/bin/hyprlock' ]]; then
