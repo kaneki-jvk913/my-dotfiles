@@ -5,9 +5,9 @@
 /home/ayoub/.config/github-scripts/scripts/2-copy-script-config.sh
 /home/ayoub/.config/github-scripts/scripts/3-copy-script-home-dots.sh
 
-rm -r /home/ayoub/my-dotfiles/.emacs.d/elpa/gnupg
-rm -r /home/ayoub/my-dotfiles/.emacs.d/auto-save-list
-rm -r /home/ayoub/my-dotfiles/.emacs.d/eln-cache
+rm -r /home/ayoub/github-repo/my-dotfiles/.emacs.d/elpa/gnupg
+rm -r /home/ayoub/github-repo/my-dotfiles/.emacs.d/auto-save-list
+rm -r /home/ayoub/github-repo/my-dotfiles/.emacs.d/eln-cache
 
 
 

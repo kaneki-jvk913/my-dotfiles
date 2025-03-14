@@ -2,7 +2,8 @@
 
 # Define source and destination directories
 SRC_DIRS=(
-"/home/ayoub/dwm"
+
+"/home/ayoub/suckless-builds-local/dwm"
 "/home/ayoub/.dwm"
 "/home/ayoub/.emacs.d"
 "/home/ayoub/.vim"
@@ -12,7 +13,7 @@ SRC_DIRS=(
 "/home/ayoub/.vimrc"
 "/home/ayoub/.zshrc"
 )
-DEST_DIR="/home/ayoub/my-dotfiles"
+DEST_DIR="/home/ayoub/github-repo/my-dotfiles"
 
 # Create the destination directory if it doesn't exist
 mkdir -p "$DEST_DIR"

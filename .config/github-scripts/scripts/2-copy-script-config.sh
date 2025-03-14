@@ -6,6 +6,7 @@ SRC_DIRS=(
 "/home/ayoub/.config/bspwm"
 "/home/ayoub/.config/btop"
 "/home/ayoub/.config/cava"
+"/home/ayoub/.config/dunst"
 "/home/ayoub/.config/dwm"
 "/home/ayoub/.config/fastfetch"
 "/home/ayoub/.config/github-scripts"
@@ -34,7 +35,7 @@ SRC_DIRS=(
 "/home/ayoub/.config/colors-best.css"
 
 )
-DEST_DIR="/home/ayoub/my-dotfiles/.config"
+DEST_DIR="/home/ayoub/github-repo/my-dotfiles/.config"
 
 # Create the destination directory if it doesn't exist
 mkdir -p "$DEST_DIR"

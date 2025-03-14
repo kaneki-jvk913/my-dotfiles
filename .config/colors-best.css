@@ -1,10 +1,44 @@
+polybar
+
+[colors]
+background = #282A2E
+background-alt = #373B41
+foreground = #C5C8C6
+primary = #F0C674
+secondary = #8ABEB7
+alert = #A54242
+disabled = #707880
+
+
+col0 = #1e2030 ; catpucin mocha
+col1 = #ff6c6b ; red
+col2 = #ecbe7b ; yellow
+col3 = #51afef ; blue
+col4 = #98be65 ; green
+col5 = #a9a1e1 ; purple
+col6 = #da8548 ; orange		 
+col7 = #8a30b1 ; purple
+col8 = #c678dd ; purple
+
+
+
+
+
+
+
+
+
+
+
+
+
+		 
 
 /* dwm default */
-  4 static const char col_gray1[]       = #222222 ;                          
-  5 static const char col_gray2[]       = #444444 ;                          
-  6 static const char col_gray3[]       = #bbbbbb ;                          
-  7 static const char col_gray4[]       = #eeeeee ;                          
-  8 static const char col_cyan[]        = #005577 ;  
+ #222222 ;                          
+ #444444 ;                          
+ #bbbbbb ;
+ #005577 ;  
 
  #ffffff
   
@@ -23,7 +57,48 @@
  #46d9ff;
 
 
+[DoomOne]
+ 67 background = #dd282c34
+ 68 foreground = #bbc2cf
+ 69 color0     = #1c1f24
+ 70 color1     = #ff6c6b
+ 71 color2     = #98be65
+ 72 color3     = #da8548
+ 73 color4     = #51afef
+ 74 color5     = #c678dd
+ 75 color6     = #5699af
+   #abb2bf
+  #5b6268
+  #da8548
+  #4db5bd
+  #ecbe7b
+ #3071db
+  #a9a1e1
+  #46d9ff
+  #dfdfdf
+ 
+#adb1b9
 
+
+#499dd7
+#9891ca
+#e56160
+#f3a64b
+#5ac8fa
+#34c759
+#af52de
+#ffcc00
+#ff3b30
+#5856d6
+#d0a5db
+#4dc0b5
+#ffd34e
+#b8e986
+#7268a6
+
+
+
+ 
   dwm    #323a44     #485768     #323a44
 
  static const char normbordercolor[]          = #3B4252
@@ -38,3 +113,24 @@ static const char *colors[][3] = {
     [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
     [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor },
 };
+
+
+
+
+
+
+
+ 14 static const int topbar             = 1;        /* 0 means bottom bar */
+ 15 static const char *fonts[]          = { "monospace:size=11:style=Bold" };
+ 16 static const char dmenufont[]       = "monospace:size=10";
+ 17 static const char col_gray1[]       = "#222222";
+ 18 static const char col_gray2[]       = "#444444";
+ 19 static const char col_gray3[]       = "#bbbbbb";
+ 20 static const char col_gray4[]       = "#eeeeee";
+ 21 static const char col_cyan[]        = "#005577";
+ 22 static const char *colors[][3]      = {
+ 23         /*               fg         bg         border   */
+ 24         [SchemeNorm] = { col_gray3,  #2E3440, col_gray2 },
+ 25         [SchemeSel]  = { col_gray4,  #485768,  #bbbbbb  },
+ 26 };
+>

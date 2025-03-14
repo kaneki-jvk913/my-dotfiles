@@ -69,7 +69,7 @@ static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-        { MODKEY,                       XK_Return, spawn,          SHCMD("kitty") },
+        { MODKEY,                       XK_Return, spawn,          SHCMD("tabbed -r 2 st -w ''") },
         { MODKEY,                       XK_e,      spawn,          SHCMD("nautilus") },
         { MODKEY,                       XK_b,      spawn,          SHCMD("brave") },
         { MODKEY,                       XK_r,      spawn,          SHCMD("/home/ayoub/.config/rofi/launchers/type-6/launcher.sh") }, 
@@ -112,6 +112,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+	 { MODKEY|ShiftMask|ControlMask, XK_q,      quit,           {0} },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	TAGKEYS(                        XK_1,                      0)

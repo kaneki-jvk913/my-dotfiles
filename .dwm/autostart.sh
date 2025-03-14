@@ -15,8 +15,7 @@ setxkbmap fr us-azerty &
 
 /usr/lib/polkit-kde-authentication-agent-1 &
 
-
-
+dunst &
 
 /usr/bin/emacs --daemon &  
 

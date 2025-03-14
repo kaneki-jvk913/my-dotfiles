@@ -1,40 +1,46 @@
 # my costum keys ayoub
+###################################### run apps ################
 
 # terminal emulator kitty
 super + Return
-	kitty
+	tabbed -r 2 st -w ''
 # app luancher dmenu
-super + r
+super + p
         /home/ayoub/.dwm/run-recent.sh
 
 # close and kill
 super + c
 	bspc node -c
 
-# browser
+# browser3
 super + b 
       brave       
        
 # file manager
 super + e 
       nautilus
+      
+# lock scren      
+super + l
+         i3lock -i /home/ayoub/Downloads/photo/wallpaper/0-77.png -f -k
 
+# rofi
+super + r 
+         /home/ayoub/.config/rofi/launchers/type-6/launcher.sh
+########################## reload ################################
 # reload bsp 
 super + shift + r
            bspc wm -r
-
-
-
-
-
-
-### WM INDEPENDENT KEYBINDINGS ###
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
-### BSPWM HOTKEYS ###
+
+# reload polybar
+super + ctrl + p
+    pkill polybar && polybar &
+
 
 
 
@@ -43,80 +49,34 @@ super + Escape
 super + space
 	bspc desktop -l next
 
-# send the newest marked node to the newest preselected node
-super + y
-	bspc node newest.marked.local -n newest.!automatic.local
 
-# swap the current node and the biggest node
-super + m
-	bspc node -s biggest
 
-# STATE/FLAGS
+#########
+########### control windows ##################################
 
-# set the window state
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+# Focus windows using arrow keys
+super + {Left,Down,Up,Right}
+    bspc node -f {west,south,north,east}
 
-# set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
 
-# FOCUS/SWAP
 
-# focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
 
-# focus the node for the given path jump
-super + {shift + p, shift + b, ctrl + f, ctrl + s}
-	bspc node -f @{parent,brother,first,second}
-
-# focus the next/previous node in the current desktop
-super + {_,shift + }n
-	bspc node -f {next,prev}.local
-
-# focus the next/previous desktop in the current monitor
-super + {Left, Right}
- 	bspc desktop -f {prev,next}.local
-
-# focus the next/previous monitor
-super + {comma, period}
-    bspc monitor -f {prev,next}
-
-super + {shift + comma, shift + period}
-    bspc node -s {prev,next}
-
-# focus the last node/desktop
-super + {shift + Tab,Tab}
-	bspc {node,desktop} -f last
-
-# focus the older or newer node in the focus history
-super + {o,i}
-	bspc wm -h off; \
-	bspc node {older,newer} -f; \
-	bspc wm -h on
-
-# focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} focused:'^{1-9,10}'
-
-# PRESELECT
-
-# preselect the direction
-super + ctrl + {h,j,k,l}
+# manual select tile position
+super + ctrl + {Left,Down,Up,Right}
 	bspc node -p {west,south,north,east}
 
-# preselect the ratio
-super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
 
-# cancel the preselection for the focused node
-super + ctrl + space
-	bspc node -p cancel
 
-# cancel the preselection for the focused desktop
-super + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+
+
+
+# Focus on the last active workspace
+super + Tab
+    bspc desktop -f last
+
+
+
 
 # MOVE/ resize
 # shrink/expand
@@ -129,45 +89,14 @@ super + shift + Up
 super + shift + Right
 	bspc node -z {left 20 0} || bspc node -z {right 20 0}
 
-# move a floating window
-#super + {Left,Down,Up,Right}
-#	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+# Switch to a specific workspace
+super + {1-9}
+    bspc desktop -f ^{1-9}
 
-
-# dmscripts (SUPER + p followed by another key)
-super + p; h
-    dm-hub
-super + p; {a}
-    dm-sounds
-super + p; {b}
-    dm-setbg
-super + p; {c}
-    dtos-colorscheme
-super + p; {shift + c}
-    dm-colpick
-super + p; {e}
-    dm-confedit
-super + p; {i}
-    dm-maim
-super + p; {k}
-    dm-kill
-super + p; {m}
-    dm-man
-super + p; {n}
-    dm-note
-super + p; {o}
-    dm-bookman
-super + p; p
-    passmenu -p Pass:
-super + p; {q}
-    dm-logout
-super + p; {r}
-    dm-radio
-super + p; {s}
-    dm-websearch
-super + p; {t}
-    dm-translate
+# Send a window to a specific workspace
+super + shift + {1-9}
+    bspc node -d ^{1-9}
 
 
 
@@ -176,10 +105,35 @@ super + p; {t}
 
 
 
+################# media ####################
+
+
+XF86AudioNext
+    playerctl next
+    
+XF86AudioPause
+    playerctl play-pause
+
+XF86AudioPlay
+    playerctl play-pause
+
+XF86AudioPrev
+    playerctl previous
 
 
 
 
+XF86AudioRaiseVolume
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+
+XF86AudioLowerVolume
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+    
+XF86AudioMute
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    
+XF86AudioMicMute
+    wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
 
 
