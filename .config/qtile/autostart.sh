@@ -10,7 +10,7 @@ dunst &
 
 setxkbmap fr us-azerty &
 
-xautolock -time 5 -locker "i3lock -i /home/ayoub/Downloads/photo/wallpaper/0-77.png -f -k" &
+xautolock -time 10 -locker "i3lock -i /home/ayoub/Downloads/photo/wallpaper/0-77.png -f -k" &
 
 /usr/lib/polkit-kde-authentication-agent-1 &
 
