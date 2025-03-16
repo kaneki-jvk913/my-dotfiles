@@ -112,6 +112,15 @@ color: @teal;
 color: @teal;
 }
 
+#custom-previous,
+#custom-play,
+#custom-next
+{
+ margin: 01px 0px 0px 0px;
+ color: @teal;
+   font-size: 20px;
+}
+
 
 
 

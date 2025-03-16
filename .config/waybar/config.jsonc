@@ -16,19 +16,24 @@
   "reload_style_on_change": true,
 
 "modules-left": [
-	"custom/swaync",
-        "pulseaudio/slider",
-        "pulseaudio#audio"
-      
+	"custom/swaync",      
+    "pulseaudio/slider",
+        "pulseaudio#audio",
+	"custom/previous",
+	"custom/play",
+	"custom/next"
+	
+	
 ],
 
 "modules-center": [
-	"hyprland/workspaces",
+		"hyprland/workspaces",
+
 ],
 
 "modules-right": [
 	"tray",
-	"cpu",
+        "cpu",
 	"memory",
 	"battery",
 	"clock",

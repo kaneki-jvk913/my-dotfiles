@@ -32,13 +32,13 @@
 
   "cpu": {
 //"format":"󰍛",
-"format": "󰍛",
+"format": " 󰍛\n{usage}%",
 "tooltip": true,
         "tooltip-format": "CPU Usage: {usage}%"
     },
 
 "memory": {
-        "format": "󰾆",
+        "format": " 󰾆\n{used}",
                 "tooltip-format": "RAM Usage: {used} / {total}",
         "on-click": "",
         "tooltip": true
@@ -120,6 +120,42 @@
     "on-click-right": "swaync-client -d -sw",
     "escape": true,
 },
+
+
+
+
+
+
+
+
+ "custom/previous": {
+        "exec": "echo 󰒮",
+        "tooltip": "Previous Track",
+        "on-click": "playerctl previous",
+        "interval": 0
+    },
+
+    "custom/play": {
+        "exec": "echo 󰐊",
+        "tooltip": "Play/Pause",
+        "on-click": "playerctl play-pause",
+        "interval": 0
+    },
+
+    "custom/next": {
+        "exec": "echo 󰒭",
+        "tooltip": "Next Track",
+        "on-click": "playerctl next",
+        "interval": 0
+    },
+
+
+
+
+
+
+
+
 
 
 
