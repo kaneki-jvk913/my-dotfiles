@@ -22,7 +22,7 @@ mod = "mod4"
 keys = [
 
           # launch apps 
-    Key([mod], "Return", lazy.spawn("tabbed -r 2 st -w ''"), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn("kitty"), desc="Launch terminal"),
     Key([mod], "e", lazy.spawn("nautilus"), desc="Launch nautilus"),
     Key([mod], "b", lazy.spawn("brave")),
     Key([mod], "s", lazy.spawn("/home/ayoub/.config/qtile/scripts/spotify-brave.sh"), desc="spotify"),

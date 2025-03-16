@@ -3,7 +3,7 @@
 
 # terminal emulator kitty
 super + Return
-	tabbed -r 2 st -w ''
+	kitty
 # app luancher dmenu
 super + p
         /home/ayoub/.dwm/run-recent.sh

@@ -16,9 +16,21 @@
 "margin-left": 8,
 "margin-right": 8,
 
-"modules-left": ["hyprland/workspaces","custom/separator#dot-line","cpu","custom/separator#dot-line","temperature","custom/separator#dot-line", "memory","custom/separator#dot-line","custom/cava_mviz" ],
+"modules-left": [
+         "hyprland/workspaces",
+         "custom/separator#dot-line",
+	 "cpu",
+	 "custom/separator#dot-line",
+	 "temperature",
+	 "custom/separator#dot-line",
+	 "memory",
+	 "custom/separator#dot-line",
+         "custom/cava_mviz"
+
+         ],
+	 
 "modules-center": [
-	"custom/menu",
+ 	"custom/menu",
 	"custom/separator#dot-line",
 	"custom/separator#dot-line",
 	"clock",

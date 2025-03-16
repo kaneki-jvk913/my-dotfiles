@@ -31,45 +31,23 @@
     },
 
   "cpu": {
-//"format":"󰍛",
-"format": "󰍛",
-"tooltip": true,
+"format":"󰻠",
+        "tooltip": true,
         "tooltip-format": "CPU Usage: {usage}%"
     },
 
 "memory": {
-        "format": "󰾆",
+        "format": "󰍛",
                 "tooltip-format": "RAM Usage: {used} / {total}",
         "on-click": "",
         "tooltip": true
    },
 
-"battery": {
-    //"interval": 5,
-    "align": 0,
-    "rotate": 0,
-    //"bat": "BAT1",
-    //"adapter": "ACAD",
-    "full-at": 100,
-    "design-capacity": false,
-    "states": {
-      "good": 95,
-      "warning": 30,
-      "critical": 15
-             },
-    "format": "{icon} {capacity}%",
-    "format-charging": "{capacity}%",
-    "format-plugged": "󱘖 {capacity}%",
-	"format-alt-click": "click",
-    "format-full": "{icon} Full",
-    "format-alt": "{icon} {time}",
-    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    "format-time": "{H}h {M}min",
-    "tooltip": true,
-    "tooltip-format": "{timeTo} {power}w",
-    "on-click-middle": "~/.config/hypr/scripts/ChangeBlur.sh",
-    "on-click-right": "~/.config/hypr/scripts/Wlogout.sh",
-},
+    "battery": {
+ "format": "󰂑",
+        "tooltip": true,
+        "tooltip-format": "Battery: {percentage}% ({time_remaining})"
+	 },
 
 
   "pulseaudio/slider": {
