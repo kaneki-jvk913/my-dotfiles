@@ -1,0 +1,254 @@
+
+/////////////////////////////////////////////////////////////////
+/////////////////////// bar ////////////////////////////////////
+
+.bar {
+  background-color: #151515; /* Background color of the bar */
+
+  border-radius: 15px; /* Rounded corners */
+  margin: 5px ; /* the bar large size */
+
+}
+
+
+/////////////////////////////////////////////////////////
+/////////////////// power /////////////////////////////////
+////////////////////////////////////////////////////////
+
+//#c5607c
+
+.power {
+  padding: 10px 3px 0px 3px;                
+  font-size: 18px;             /* Font size for icons */
+ }
+
+.button-power {
+    background: none;
+    color:  #c5607c;           
+  }
+
+
+////////////////////////////////////////////////////////////
+////////////////////// system-indicators ///////////////////
+////////////////////////////////////////////////////////////
+
+.system-indicators {
+  background:  #242424;     /* Transparent button */
+  padding: 0px 3px 0px 3px;                
+  font-size: 18px;             /* Font size for icons */
+  border: 0px solid #242424;  // Nord color palette border
+  border-radius: 12px;         // Rounded corners for the container
+ 
+}
+
+.bluetooth-indicator {
+    background: none;
+    color: #D6D6D6;           
+  }
+
+.volume-indicator {
+    background: none;
+    color: #D6D6D6;           
+  }
+
+.brightness-indicator {
+    background: none;
+    color: #D6D6D6;           
+  }
+
+.wifi-indicator {
+    background: none;
+    color: #4994d0;
+     margin: 0px 3px 0px 0px;
+
+  }
+
+.battery-indicator {
+    background: none;
+    color: #3BAB73;
+     margin: 0px 0px 0px 3px;
+
+  }
+
+.notification-indicator {
+    background: none;
+    color: #C2D06F;           
+  }
+
+
+
+
+
+/////////////////////////////////////////////////////////////////
+///////////////////////// hyprpiker //////////////////////////
+////////////////////////////////////////////////////////////
+
+
+
+.hyprpicker-button {
+  background: none;     /* Transparent button */
+  padding: 50px 3px 15px 3px;                
+  font-size: 18px;             /* Font size for icons */
+  color: #D6D6D6;              /* Icon color */
+  
+}
+
+
+/////////////////////////////////////////////////////////////
+////////////////// media control ////////////////////////
+///////////////////////////////////////////////////////////////
+/* Media Controls Container */
+.media-controls {
+  background-color: #242424;   /* Dark background */
+  border-radius: 12px;         /* Smooth rounded corners */
+  padding: 10px;  
+
+}
+
+/* Media Control Buttons */
+.media-button {
+  background: transparent;     /* Transparent button */
+  border: none;                /* No border */
+  padding: 0px 0px 0px 0px;
+  font-size: 22px;             /* Font size for icons */
+  color: #D6D6D6;              /* Icon color */
+  transition: all 0.2s ease;   /* Smooth hover effect */
+ }
+
+
+.media-pause {
+  background: transparent;     /* Transparent button */
+  border: none;                /* No border */
+  padding: 0px 3px 0px 3px;
+  margin:  0px 3px 0px 0px;
+  font-size: 22px;             /* Font size for icons */
+  color: #D6D6D6;              /* Icon color */
+  transition: all 0.2s ease;   /* Smooth hover effect */
+ }
+
+
+
+/* Dynamic Play/Pause Icon */
+.icon-media {
+  font-size: 22px;             /* Slightly larger size for the icon */
+  font-weight: bold;           /* Bold to emphasize it */
+  color:   #D6D6D6;              /* Greenish tint */
+  margin: 0px 0;               /* Minimal spacing */
+  padding: 0
+}
+
+
+
+.points  {
+  color:   #D6D6D6;              /* Change color on hover */
+font-weight: bold;
+ font-size: 20px;
+}
+
+
+
+
+
+////////////////////////////////////////////////////////////////
+///////////////////////// clock //////////////////////////////
+/////////////////////////////////////////////////////////////
+/* Style for the clock button */
+.button.clock {
+  border: none;              /* No border */
+  background: #242424;
+  padding: 5px 0px 5px 0px;              /* Spacing for alignment */
+  transition: all 0.2s ease; /* Smooth hover transition */
+  border: 0px solid #242424;  // Nord color palette border
+  border-radius: 12px;         // Rounded corners for the container
+}
+
+
+/* Style for the clock label (hour) */
+.clock {
+  font-size: 22px;           /* Bigger font for hours */
+  font-weight: bold;         /* Bold for emphasis */
+  color: #D6D6D6;            /* Cool blue color for readability */
+  margin: 0;                 /* Remove extra spacing */
+ padding: 0px 0px 0px 0px;              /* Spacing for alignment */
+ 
+}
+
+
+/* Style for the minutes label */
+.minutes {
+    font-size: 22px;
+    font-weight: bold;
+    color: #D6D6D6;            /* Soft blue for distinction */
+  margin: 0;             /* Minimal spacing above and below */
+}
+
+/////////////////////////////////////////////////////////////////
+//////////////////////// arch linux icon ////////////////////////
+////////////////////////////////////////////////////////////////
+
+.button.launcher {
+  background: none;  /* Removes background */
+  border-radius: 10px;
+  padding: 0;        
+//  margin-top: 5px;   
+//  margin-bottom: 5px; 
+  margin: 5px 5px 5px 5px;
+}
+
+
+.icon-arch {
+    font-size: 22px; /* Adjust icon size */
+  color: #4994D0;
+ margin: 0px 5px 4px 0px;
+ 
+}
+
+
+  ////////////////////////////////////////////////////////////////
+ //////////////////////// workspaces ////////////////////////////
+////////////////////////////////////////////////////////////////
+// Reset all potential border styles
+* {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+
+.workspaces-widget {
+  background: #242424;
+  border: 0px solid #242424;  // Nord color palette border
+  border-radius: 12px;         // Rounded corners for the containe
+
+}
+
+.workspace-entry {
+    font-size: 14px;
+     color: #ffffff; /* Default color for workspaces */
+
+    padding: 0px 0px 0px 0px;                
+  margin: 0px 0px 0px 0px;                
+  font-size: 20;
+}
+
+.workspace-entry.occupied {
+    color: #f9e2af; /* Gold for occupied workspaces */
+}
+
+.workspace-entry.empty {
+    color: #6c7086; /* Gray for empty workspaces */
+}
+
+.workspace-entry.current {
+    font-weight: bold;
+    color: #a6e3a1; /* Green for the current workspace */
+    text-decoration: underline; /* Example of adding emphasis */
+ background: #4994D0;
+  border: 0px solid #4994D0;  // Nord color palette border
+  border-radius: 12px;         // Rounded corners for the containe
+
+}
+
+
+
+

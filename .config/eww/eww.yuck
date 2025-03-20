@@ -1,0 +1,322 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Variables ;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defpoll    hour        :interval "5s" `date "+%H"`)
+(defpoll    minutes     :interval "5s" `date "+%M"`)
+
+(defpoll play_pause_icon :interval "1s" "bash ~/.config/eww/scripts/toggle_play_pause_icon.sh")
+
+(defpoll bluetooth-output :interval "1s" "bash ~/.config/eww/scripts/system-indicators/bluetooth-output.sh")
+
+(defpoll volume-output :interval "0.1s" "bash ~/.config/eww/scripts/system-indicators/volume-output.sh")
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; widgets ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+
+(defwidget empty [] (box :class "empty-empty"
+    (button
+        :class "button-empty"
+        (label :class "empty" :text " " :halign "center")
+    )
+))
+  
+
+
+
+
+;;;;;;;;;;;;;;;; power
+
+
+(defwidget power []
+(box :class "power"
+    (button
+        :class "button-power"
+        :onclick "~/.config/rofi/powermenu/type-5/powermenu.sh"
+        (label :class "button-power" :text "⏻")
+    )
+))
+  
+
+
+
+
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; system-indicators ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defwidget system-indicators []
+  (box
+    :class "system-indicators"
+    :orientation "v"  ;; Stack vertically
+    :spacing 0        ;; No spacing between buttons
+    :halign "center"  ;; Center align horizontally
+    :valign "center"  ;; Center align vertically
+
+;*********************
+;***** bluetooth *****
+;*********************
+    (button
+      :class "bluetooth-indicator"   
+      :tooltip "bluetooth"
+      :onclick "blueman-manager &"
+            (label :class "bluetooth-icon" :text bluetooth-output))
+
+;*********************
+;***** volume ********
+;**********************
+    (button
+      :class "volume-indicator"
+      :tooltip "volume"
+      :onclick "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      (label :class "volume-icon" :text volume-output))
+      
+;**********************
+;****** Brightness ****
+;**********************
+(button
+      :class "brightness-indicator"
+      :tooltip "brightness"
+      :onclick "/home/ayoub/.config/eww/scripts/system-indicators/brightness-hyprsunset.sh"
+      (label :class "brightness-icon" :text "󰛨"))    
+
+;************************
+;****** wifi ****
+;************************
+(button
+      :class "wifi-indicator"
+      :tooltip "wifi"
+   ;   :onclick ""
+      (label :class "wifi-icon" :text "󰤨"))    
+
+;**********************
+;******** Battery *****
+;**********************
+(button
+      :class "battery-indicator"
+      :tooltip "battery"
+  ;    :onclick ""
+      (label :class "battery-icon" :text "󰂄"))    
+
+;************************
+;****** notification ****
+;************************
+(button
+      :class "notification-indicator"
+      :tooltip "notification"
+      :onclick "swaync-client -t"
+      (label :class "notification-icon" :text "󱅫"))    
+
+
+))
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; hyprpicker
+
+
+(defwidget hyprpicker []
+(box :class "hyprpicker-widget"
+    :orientation "v"  ;; Stack vertically
+    :spacing 0        ;; No spacing between buttons
+    :halign "center"  ;; Center align horizontally
+    :valign "center"  ;; Center align vertically
+
+    (button
+        :class "hyprpicker-button"
+        :onclick "hyprpicker &"
+        (label :class "icon-hyprpicker" :text "󰈊" :halign "center")
+    )
+))
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; media control
+
+
+
+(defwidget media_controls []
+  (box
+    :class "media-controls"
+    :orientation "v"  ;; Stack vertically
+    :spacing 0        ;; No spacing between buttons
+    :halign "center"  ;; Center align horizontally
+    :valign "center"  ;; Center align vertically
+    ;; Previous Track Button
+    (button
+      :class "media-button"   ;; Shared class for compact style
+      :tooltip "Previous Track"
+      :onclick "playerctl previous"
+      (label :class "icon-media" :text "󰒮"))       ;; Icon for Previous Track
+    ;; Play/Pause Button
+    (button
+      :class "media-pause"
+      :tooltip "Play/Pause"
+      :onclick "playerctl play-pause"
+      (label :class "icon-media" :text play_pause_icon))
+    ;; Next Track Button
+    (button
+      :class "media-button"
+      :tooltip "Next Track"
+      :onclick "playerctl next"
+      (label :class "icon-media" :text "󰒭"))        ;; Icon for Next Track
+  )
+)
+
+
+
+
+
+
+
+(defwidget three_points []
+  (box
+    :orientation "v"  ;; Stack the points vertically
+    :spacing 5        ;; Small space between the points
+    :halign "center"  ;; Center align horizontally
+    :valign "center"  ;; Center align vertically
+    (label :class "points" :text "•••")  ;; First point
+  )
+)
+
+
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; clock 
+
+
+
+
+(defwidget panel_clock [] (box :class "button-bin"
+    (button
+        :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu calendar"
+        :class "button clock"
+        (box
+            :space-evenly false
+            :orientation "v"
+            (label :text hour :class "clock")
+            (panel_separator :orientation "h" :dots "[1, 2]" :visible true)
+            (label :text minutes :class "minutes")
+        )
+    )
+))
+
+
+
+
+(defwidget panel_separator [orientation dots visible] (box
+    :orientation orientation
+    :class "separator"
+    :space-evenly false
+    :visible visible
+    (for dot in dots
+        (box :class "dot" :halign "center" :hexpand true :valign "center"))))
+
+
+;;;;;;;;;;;;;;;;;;;; arch button
+
+(defwidget panel_launcher [] (box :class "button-bin launcher"
+    (button
+        :class "button launcher"
+        :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu app_launcher"
+        (label :class "icon-arch" :text "" :halign "center")
+    )
+))
+  
+;;;;;;;;;;;;;;;;;;;; hyprland workspaces
+
+
+
+
+
+
+(deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/get-workspaces")
+(deflisten current_workspace :initial "1" "bash ~/.config/eww/scripts/get-active-workspace")
+(defwidget workspaces []
+  (eventbox :onscroll "bash ~/.config/eww/scripts/change-active-workspace {} ${current_workspace}" :class "workspaces-widget"
+    (box :space-evenly true
+            :orientation "v"
+
+      (label :text "${workspaces}${current_workspace}" :visible false)
+      (for workspace in workspaces
+        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
+          (box :class "workspace-entry ${workspace.windows > 0 ? "occupied" : "empty"}"
+            (label :text "${workspace.id}" :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""}" )
+            )
+          )
+        )
+      )
+    )
+  )
+
+
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;; widget and bar organiation ;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defwindow bar
+  :monitor 0
+  :geometry (geometry :x "7px"   ; space betwen scene edge
+                      :y "0px"
+                      :width "50px" ; horyzontal size 
+                      :height "99%" ; vertical size
+                      :anchor "left center")
+  :stacking "fg"
+  :reserve (struts :side "left" :distance "50px")
+  :exclusive "true"       ; make hyprland respect the bar
+  :windowtype "dock" 
+  (box :orientation "vertical"
+              (box :class "leftBar"
+        :space-evenly false
+        :valign "start"
+        :orientation "v"
+	   (panel_launcher)
+	   (workspaces)
+ 
+)
+              (box :class "centerBar"
+        :space-evenly false
+        :valign "center"
+        :orientation "v"
+   	(panel_clock)
+	(three_points)
+	(media_controls)
+
+)	
+
+              (box :class "rightBar"
+        :space-evenly false
+        :valign "end"
+        :orientation "v"
+	
+	(hyprpicker)
+	(system-indicators)
+	(power)
+
+
+
+)))
+
+
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+
+
