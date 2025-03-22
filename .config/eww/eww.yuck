@@ -224,7 +224,7 @@
 (defwidget panel_launcher [] (box :class "button-bin launcher"
     (button
         :class "button launcher"
-        :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu app_launcher"
+        :onclick "/home/ayoub/.config/rofi/launchers/type-6/launcher.sh"
         (label :class "icon-arch" :text "" :halign "center")
     )
 ))

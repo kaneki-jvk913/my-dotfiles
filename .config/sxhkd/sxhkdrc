@@ -27,6 +27,7 @@ super + l
 # rofi
 super + r 
          /home/ayoub/.config/rofi/launchers/type-6/launcher.sh
+
 ########################## reload ################################
 # reload bsp 
 super + shift + r

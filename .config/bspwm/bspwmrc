@@ -75,3 +75,6 @@ bspc rule -a Screenkey manage=off
 
 # setxkbmap -layout fr
 
+
+
+
