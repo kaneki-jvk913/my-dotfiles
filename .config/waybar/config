@@ -11,17 +11,12 @@
 //"spacing": 3,
 "fixed-center": true,
 "ipc": true,
-"width": 1190,
-//"width": 1900,
-
+"width": 1900,
 "margin-top": 3,
 "margin-left": 8,
 "margin-right": 8,
 
-"modules-left":[ ],
-	 
-"modules-center": [
-
+"modules-left": [
          "hyprland/workspaces",
          "custom/separator#dot-line",
 	 "cpu",
@@ -30,10 +25,12 @@
 	 "custom/separator#dot-line",
 	 "memory",
 	 "custom/separator#dot-line",
-         "custom/cava_mviz",
+         "custom/cava_mviz"
 
-
-       "custom/menu",
+         ],
+	 
+"modules-center": [
+ 	"custom/menu",
 	"custom/separator#dot-line",
 	"custom/separator#dot-line",
 	"clock",
@@ -44,8 +41,9 @@
 //	"idle_inhibitor"
         "custom/separator#blank",
 	"custom/lock",
-	 
+	], 
 
+"modules-right": [
 	"network#speed",
 	"custom/separator#dot-line",
 	"custom/swaync",
@@ -71,9 +69,6 @@
 	"tray",
 //        "custom/separator#line",
 	 "custom/power-nc",
-
-],
-"modules-right": [
 	],
 	
     

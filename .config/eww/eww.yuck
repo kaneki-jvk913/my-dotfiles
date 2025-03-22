@@ -1,3 +1,4 @@
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Variables ;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -5,11 +6,10 @@
 (defpoll    minutes     :interval "5s" `date "+%M"`)
 
 (defpoll play_pause_icon :interval "1s" "bash ~/.config/eww/scripts/toggle_play_pause_icon.sh")
-
 (defpoll bluetooth-output :interval "1s" "bash ~/.config/eww/scripts/system-indicators/bluetooth-output.sh")
-
 (defpoll volume-output :interval "0.1s" "bash ~/.config/eww/scripts/system-indicators/volume-output.sh")
-
+(defpoll wifi-output :interval "0.1s" "bash ~/.config/eww/scripts/system-indicators/wifi-output.sh")
+(defpoll battery-output :interval "0.1s" "bash ~/.config/eww/scripts/system-indicators/battery-output.sh")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; widgets ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -17,13 +17,10 @@
 
 
 
-(defwidget empty [] (box :class "empty-empty"
-    (button
-        :class "button-empty"
-        (label :class "empty" :text " " :halign "center")
-    )
-))
-  
+
+
+
+
 
 
 
@@ -93,7 +90,7 @@
       :class "wifi-indicator"
       :tooltip "wifi"
    ;   :onclick ""
-      (label :class "wifi-icon" :text "󰤨"))    
+      (label :class "wifi-icon" :text wifi-output))    
 
 ;**********************
 ;******** Battery *****
@@ -102,7 +99,7 @@
       :class "battery-indicator"
       :tooltip "battery"
   ;    :onclick ""
-      (label :class "battery-icon" :text "󰂄"))    
+      (label :class "battery-icon" :text battery-output))    
 
 ;************************
 ;****** notification ****
@@ -292,7 +289,7 @@
         :orientation "v"
    	(panel_clock)
 	(three_points)
-	(media_controls)
+;;	(media_controls)
 
 )	
 

@@ -11,6 +11,41 @@
 }
 
 
+
+//////////////////////////////////////////////////////////
+///////////////////// speed ///////////////////////////
+//////////////////////////////////////////////////////////
+/* Style for the clock button */
+.button-speed {
+  border: none;              /* No border */
+  background: #242424;
+  padding: 5px 0px 5px 0px;              /* Spacing for alignment */
+  transition: all 0.2s ease; /* Smooth hover transition */
+  border: 0px solid #242424;  // Nord color palette border
+  border-radius: 12px;         // Rounded corners for the container
+}
+
+
+/* Style for the clock label (hour) */
+.download {
+  font-size: 22px;           /* Bigger font for hours */
+  font-weight: bold;         /* Bold for emphasis */
+  color: #D6D6D6;            /* Cool blue color for readability */
+  margin: 0;                 /* Remove extra spacing */
+ padding: 0px 0px 0px 0px;              /* Spacing for alignment */
+ 
+}
+
+
+/* Style for the minutes label */
+.upload {
+    font-size: 22px;
+    font-weight: bold;
+    color: #D6D6D6;            /* Soft blue for distinction */
+  margin: 0;             /* Minimal spacing above and below */
+}
+
+
 /////////////////////////////////////////////////////////
 /////////////////// power /////////////////////////////////
 ////////////////////////////////////////////////////////

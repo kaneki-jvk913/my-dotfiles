@@ -100,8 +100,14 @@ super + shift + {1-9}
 
 
 
+# Move windows with Super + Alt + Arrow keys
+super + alt + {Left, Down, Up, Right}
+    bspc node -s {west, south, north, east}
 
 
+# make a window float
+super + v
+    bspc node -t \~floating
 
 
 

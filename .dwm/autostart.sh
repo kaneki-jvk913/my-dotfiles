@@ -1,8 +1,8 @@
 
 
-feh --bg-scale /home/ayoub/Downloads/photo/wallpaper/pexels-photo-109629.jpeg &
+#feh --bg-scale /home/ayoub/Downloads/photo/wallpaper/pexels-photo-109629.jpeg &
 
-#nitrogen --restore &
+nitrogen --restore &
 
 slstatus &
 
