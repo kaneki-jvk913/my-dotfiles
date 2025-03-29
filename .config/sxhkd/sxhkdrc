@@ -28,6 +28,14 @@ super + l
 super + r 
          /home/ayoub/.config/rofi/launchers/type-6/launcher.sh
 
+# emacs
+super + z
+        emacsclient -c -a 'emacs'
+
+# reload emacs daemon
+super + shift + z
+    pkill emacs && /usr/bin/emacs --daemon &
+
 ########################## reload ################################
 # reload bsp 
 super + shift + r

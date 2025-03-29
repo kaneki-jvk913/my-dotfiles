@@ -62,6 +62,18 @@
 ;; Bind Control + r to toggle read-only mode
 (global-set-key (kbd "C-r") 'read-only-mode)
 
+
+
+
+;;; buffers management
+
+;; Bind Shift + + to switch to the next buffer
+(global-set-key (kbd "S-+") 'next-buffer)
+
+;; Bind Shift + - to switch to the previous buffer
+(global-set-key (kbd "S--") 'previous-buffer)
+
+
 ;;----------------------------------------------------;;                      
 ;;---------------------- setings ---------------------;;                     
 ;;----------------------------------------------------;;

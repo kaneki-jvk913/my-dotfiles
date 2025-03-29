@@ -1,0 +1,38 @@
+
+
+
+
+
+C-x 3 : open split window on right
+C-x 0 : close focus split window
+C-x o : focus on next window
+
+C-x C-b : buffers list
+
+S-+ : switch next buffer
+S-- : switch previous buffer
+
+
+M-x (alt + x ) shell : open terminal shell
+
+
+C-+ : zom out
+C-- : zom in
+
+C-r : read only
+
+C-f : search forward
+C-b : search backward
+
+C-n : open new file
+
+C-x C-s : save file
+C-x C-c : close buffer
+
+C-c c : copy
+C-c v : past
+C-c x : cut
+
+ 
+C-g : quit the keybind or the comand
+
