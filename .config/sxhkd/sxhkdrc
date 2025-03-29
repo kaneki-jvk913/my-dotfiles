@@ -69,9 +69,6 @@ super + ctrl + {Left,Down,Up,Right}
 
 
 
-
-
-
 # Focus on the last active workspace
 super + Tab
     bspc desktop -f last
@@ -109,6 +106,7 @@ super + alt + {Left, Down, Up, Right}
 # make a window float
 super + v
     bspc node -t \~floating
+
 
 
 
