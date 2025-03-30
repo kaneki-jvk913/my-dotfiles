@@ -11,6 +11,5 @@ rm -r /home/ayoub/github-repo/my-dotfiles/dwm
 rm -r /home/ayoub/github-repo/my-dotfiles/.xmonad
 rm -r /home/ayoub/github-repo/my-dotfiles/.dwm
 rm -r /home/ayoub/github-repo/my-dotfiles/.emacs.d
-rm    /home/ayoub/github-repo/my-dotfiles/.emacs
 echo "old folders and files removed  successfully."
 

@@ -9,7 +9,6 @@ SRC_DIRS=(
 "/home/ayoub/.vim"
 "/home/ayoub/.xmonad"
 "/home/ayoub/.bashrc"
-"/home/ayoub/.emacs"
 "/home/ayoub/.vimrc"
 "/home/ayoub/.zshrc"
 )
