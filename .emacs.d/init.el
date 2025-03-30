@@ -1,25 +1,12 @@
-;;; Add the theme directory to the load path
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/catppuccin")
 
-;; Load the Catppuccin Mocha theme
-(load-theme 'catppuccin t)
+; ██╗  ██╗███████╗██╗   ██╗██████╗ ██╗███╗   ██╗██████╗ ███████╗
+; ██║ ██╔╝██╔════╝╚██╗ ██╔╝██╔══██╗██║████╗  ██║██╔══██╗██╔════╝
+; █████╔╝ █████╗   ╚████╔╝ ██████╔╝██║██╔██╗ ██║██║  ██║███████╗
+; ██╔═██╗ ██╔══╝    ╚██╔╝  ██╔══██╗██║██║╚██╗██║██║  ██║╚════██║
+; ██║  ██╗███████╗   ██║   ██████╔╝██║██║ ╚████║██████╔╝███████║
+; ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═════╝ ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝
+; keybinds
 
-
-
-
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(add-to-list 'default-frame-alist '(undecorated . t))
-
-
-;;font size
-(set-face-attribute 'default nil :height 140)
-
-
-
-;;----------------------------------------------------------;;
-;;------------------------- keybinds -----------------------;;
-;;----------------------------------------------------------;;
 
 ;; zom in and out
 (global-set-key (kbd "C-+") 'text-scale-increase)
@@ -77,68 +64,81 @@
 (global-set-key (kbd "S--") 'previous-buffer)
 
 
-;;----------------------------------------------------;;                      
-;;---------------------- setings ---------------------;;                     
-;;----------------------------------------------------;;
 
-(setq inhibit-startup-screen t)
+; ███████╗███████╗████████╗██╗███╗   ██╗ ██████╗ ███████╗
+; ██╔════╝██╔════╝╚══██╔══╝██║████╗  ██║██╔════╝ ██╔════╝
+; ███████╗█████╗     ██║   ██║██╔██╗ ██║██║  ███╗███████╗
+; ╚════██║██╔══╝     ██║   ██║██║╚██╗██║██║   ██║╚════██║
+; ███████║███████╗   ██║   ██║██║ ╚████║╚██████╔╝███████║
+; ╚══════╝╚══════╝   ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
+; setings
 
-; disable autosave and recover promot
-;     (setq auto-save-default nil)
-;     (setq auto-save-list-file-prefix nil) 
-;     (setq delete-auto-save-files t)      
+;; remove welcome medage
+     (setq inhibit-startup-screen t)
 
-;; Disable backup files
- ;    (setq make-backup-files nil)
- 
-(setq backup-directory-alist '((".*" . "~/.cache/emacs/backup")))
+;; backups directory
+     (setq backup-directory-alist '((".*" . "~/.cache/emacs/backup")))
 
-; lines numbers
+;; lines numbers
      (global-display-line-numbers-mode)
-
 
 ;; Smooth scrolling settings
      (setq scroll-step 1
-       scroll-conservatively 10000
-       scroll-margin 3
-       scroll-preserve-screen-position 1)
+      scroll-conservatively 10000
+      scroll-margin 3
+      scroll-preserve-screen-position 1)
 
 ;; Hide the menu bar
      (menu-bar-mode -1)
 
-
 ;; remove weird symbol for long lines
-(global-visual-line-mode 1)
+     (global-visual-line-mode 1)
+
+;; make emacs gui clean 
+     (tool-bar-mode -1)
+     (scroll-bar-mode -1)
+     (add-to-list 'default-frame-alist '(undecorated . t))
+
+;;font size
+;     (set-face-attribute 'default nil :height 140)
+
+;; Use JetBrainsMono Nerd Font (with ligatures)
+(set-face-attribute 'default nil
+                    :family "JetBrainsMono Nerd Font"
+                    :height 140
+                    :weight 'normal)
+
+;; Load the Catppuccin Mocha theme
+     (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/catppuccin")
+     (load-theme 'catppuccin t)
 
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;; aliases
-
+;; aliases
 (defalias 'quit 'kill-emacs)
 
 
+; ██████╗ ██╗     ██╗   ██╗ ██████╗ ██╗███╗   ██╗███████╗
+; ██╔══██╗██║     ██║   ██║██╔════╝ ██║████╗  ██║██╔════╝
+; ██████╔╝██║     ██║   ██║██║  ███╗██║██╔██╗ ██║███████╗
+; ██╔═══╝ ██║     ██║   ██║██║   ██║██║██║╚██╗██║╚════██║
+; ██║     ███████╗╚██████╔╝╚██████╔╝██║██║ ╚████║███████║
+; ╚═╝     ╚══════╝ ╚═════╝  ╚═════╝ ╚═╝╚═╝  ╚═══╝╚══════╝
+; plugins
 
 
-;;----------------------------------------------------;;                       
-;;---------------------- plugins ---------------------;;                   
-;;----------------------------------------------------;;    
-
-;&&&&&&&&&&&&&&&&&&&& doom modeline &&&&&&&&&&&&&&&&&&&
-;&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-
+;#############doom modeline
+;##########################
 
 ;; Load Doom Modeline
-(use-package doom-modeline
-  :ensure t
-  :init (doom-modeline-mode 1)
- :config
-  ;; Remove encoding and line-ending information
-  (setq doom-modeline-buffer-encoding nil
-        doom-modeline-buffer-file-format nil))
-
+     (use-package doom-modeline
+      :ensure t
+      :init (doom-modeline-mode 1)
+      :config
+;; Remove encoding and line-ending information
+     (setq doom-modeline-buffer-encoding nil
+      doom-modeline-buffer-file-format nil))
 ;;  Customize Doom Modeline settings
-
+     
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -146,17 +146,16 @@
  ;; If there is more than one, they won't work right.
  '(mode-line ((t (:background "#1B1F24" :foreground "white" :box (:line-width -1 :style released-button)))))
  '(mode-line-inactive ((t (:background "#1B1F24" :foreground "white" :box (:line-width -1 :style released-button))))))
-
-
 ;; Enable column number display
-(column-number-mode 1)
+     (column-number-mode 1)
 
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; run comands 
+;;  package-refresh-contents
 ;; M-x ret package-install ret doom-modeline
-
+;;                         
 
 
 
