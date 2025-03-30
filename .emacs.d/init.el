@@ -107,6 +107,10 @@
      (menu-bar-mode -1)
 
 
+;; remove weird symbol for long lines
+(global-visual-line-mode 1)
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;; aliases
