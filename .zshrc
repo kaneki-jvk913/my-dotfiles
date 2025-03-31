@@ -31,7 +31,7 @@ alias dotfiles='/home/ayoub/.config/github-scripts/refresh-local-repo.sh'
 # alias emacs='emacsclient -nw -a "" -c'
  alias emacs='emacsclient -c -a 'emacs''
 
- alias emacs-cli='/usr/bin/emacs -nw'
+ alias emacs-tui='/usr/bin/emacs -nw'
  
  alias lock-and-suspend='i3lock -i /home/ayoub/Downloads/photo/wallpaper/0-77.png -f -k && systemctl suspend'
 

@@ -29,6 +29,11 @@ keys = [
 #    Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Launch Rofi"),
     Key([mod], "r", lazy.spawn("/home/ayoub/.config/rofi/launchers/type-6/launcher.sh"), desc="Launch Rofi"),
 
+
+     Key([mod], "z", lazy.spawn("emacsclient -c -a 'emacs'")), 
+ Key([mod, "shift"], "z", lazy.spawn("pkill emacs && /usr/bin/emacs --daemon &")), 
+
+
           # control windows
     Key([mod], "v", lazy.window.toggle_floating(), desc="floating focus window"),
     Key([mod], "c", lazy.window.kill(), desc="Close the focused window"),

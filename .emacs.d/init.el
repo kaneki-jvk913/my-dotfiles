@@ -9,59 +9,53 @@
 
 
 ;; zom in and out
-(global-set-key (kbd "C-+") 'text-scale-increase)
-(global-set-key (kbd "C--") 'text-scale-decrease)
-
+         (global-set-key (kbd "C-+") 'text-scale-increase)
+         (global-set-key (kbd "C--") 'text-scale-decrease)
 
 ;; Bind Control + n to open another file
          (global-set-key (kbd "C-n") 'find-file)
 
 ;; close buffer without save C-x C-c 
-(global-set-key (kbd "C-x C-c")
-  (lambda ()
-    (interactive)
-    (set-buffer-modified-p nil) ;; Mark the buffer as unmodified
-    (kill-buffer)))
-
+         (global-set-key (kbd "C-x C-c")
+          (lambda ()
+          (interactive)
+          (set-buffer-modified-p nil) ;; Mark the buffer as unmodified
+          (kill-buffer)))
 
 ;; save C-x C-s
-
-
-(global-set-key (kbd "C-c c") 'kill-ring-save)  ;; Copy
-(global-set-key (kbd "C-c v") 'yank)           ;; Paste
-(global-set-key (kbd "C-c x") 'kill-region)    ;; Cut
+         (global-set-key (kbd "C-c c") 'kill-ring-save)  ;; Copy
+         (global-set-key (kbd "C-c v") 'yank)            ;; Paste
+         (global-set-key (kbd "C-c x") 'kill-region)     ;; Cut
 
 ;; search
-(global-set-key (kbd "C-f") 'isearch-forward)  ;; Set C-f for forward search
-(define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
+         (global-set-key (kbd "C-f") 'isearch-forward) ;; C-f forward search
+         (define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
 
-(global-set-key (kbd "C-b") 'isearch-backward) ;; Set C-b for backward search
-(define-key isearch-mode-map (kbd "C-b") 'isearch-repeat-backward)
+         (global-set-key (kbd "C-b") 'isearch-backward) ;; C-b backward search
+         (define-key isearch-mode-map (kbd "C-b") 'isearch-repeat-backward)
 
 
 ;; select all
-       ;; Define a function to select all text
-          (defun select-all ()
-          "Select all text in the current buffer."
-          (interactive)
-          (goto-char (point-min))
-          (set-mark (point-max)))
-        ;; Bind the function to Ctrl + a
-          (global-set-key (kbd "C-a") 'select-all)
+       ; Define a function to select all text
+         (defun select-all ()
+       "Select all text in the current buffer."
+         (interactive)
+         (goto-char (point-min))
+         (set-mark (point-max)))
+       ; Bind the function to Ctrl + a
+         (global-set-key (kbd "C-a") 'select-all)
 
 ;; Bind Control + r to toggle read-only mode
-(global-set-key (kbd "C-r") 'read-only-mode)
-
-
+         (global-set-key (kbd "C-r") 'read-only-mode)
 
 
 ;;; buffers management
 
 ;; Bind Shift + + to switch to the next buffer
-(global-set-key (kbd "S-+") 'next-buffer)
+         (global-set-key (kbd "S-+") 'next-buffer)
 
 ;; Bind Shift + - to switch to the previous buffer
-(global-set-key (kbd "S--") 'previous-buffer)
+         (global-set-key (kbd "S--") 'previous-buffer)
 
 
 

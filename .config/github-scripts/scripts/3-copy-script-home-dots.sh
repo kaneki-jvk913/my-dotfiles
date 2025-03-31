@@ -6,6 +6,7 @@ SRC_DIRS=(
 
 "/home/ayoub/suckless-builds-local/dwm"
 "/home/ayoub/.dwm"
+"/home/ayoub/.themes"
 "/home/ayoub/.vim"
 "/home/ayoub/.xmonad"
 "/home/ayoub/.bashrc"
