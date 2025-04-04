@@ -8,7 +8,3 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
-
-
-
-alias emacs='emacsclient -nw -a "" -c'
