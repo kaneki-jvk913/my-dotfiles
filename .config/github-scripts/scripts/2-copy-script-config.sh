@@ -7,7 +7,6 @@ SRC_DIRS=(
 "/home/ayoub/.config/btop"
 "/home/ayoub/.config/cava"
 "/home/ayoub/.config/dunst"
-"/home/ayoub/.config/dwm"
 "/home/ayoub/.config/eww"
 "/home/ayoub/.config/fastfetch"
 "/home/ayoub/.config/github-scripts"
